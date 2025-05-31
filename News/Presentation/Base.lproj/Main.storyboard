@@ -69,11 +69,10 @@
         <!--Profile-->
         <scene sceneID="m9n-ob-TJX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xdh-qZ-l5c" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="xdh-qZ-l5c" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="Kin-Rd-VW5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4mW-Xh-lLf">
-                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -88,11 +87,10 @@
         <!--Save-->
         <scene sceneID="Zhs-WI-H2C">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yI0-ef-vLg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="yI0-ef-vLg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Save" image="bookmark" catalog="system" selectedImage="bookmark.fill" id="Q51-by-nSR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pyg-D0-ToH">
-                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -107,11 +105,10 @@
         <!--Discover-->
         <scene sceneID="78A-9r-r2g">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sk1-cv-VjW" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="sk1-cv-VjW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Discover" image="safari" catalog="system" selectedImage="safari.fill" id="Lzc-Nb-1us"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1PC-FV-hIX">
-                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -126,11 +123,10 @@
         <!--Home-->
         <scene sceneID="7yH-58-9tC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IgR-nc-88Q" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="IgR-nc-88Q" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="2ja-zV-BPO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fLO-xh-twg">
-                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -11,9 +11,11 @@ protocol Apply { }
 
 extension Apply {
 
-    ///
+    /// <#Description#>
+    /// - Parameter configuration: <#configuration description#>
+    /// - Returns: <#description#>
     @discardableResult
-    func apply(_ configuration: (Self) -> Void) -> Self {
+    @inlinable func apply(_ configuration: (Self) -> Void) -> Self {
         configuration(self)
         return self
     }

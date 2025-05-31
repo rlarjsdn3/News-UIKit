@@ -10,7 +10,7 @@ import UIKit
 ///
 final class NewsTabBar: UITabBar {
     ///
-    private let barHeight: CGFloat = 90
+    private let barHeight: CGFloat = 94
     ///
     private var shapeLayer: CAShapeLayer?
 
@@ -23,6 +23,7 @@ final class NewsTabBar: UITabBar {
         } else {
             self.layer.insertSublayer(newShapeLayer, at: 0)
         }
+        self.shapeLayer = newShapeLayer
     }
 
     override func layoutSubviews() {
@@ -32,6 +33,12 @@ final class NewsTabBar: UITabBar {
         tabBarFrame.size.height = barHeight
         tabBarFrame.origin.y = self.frame.origin.y + self.frame.height - barHeight
         self.frame = tabBarFrame
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.updateColor()
+        self.setNeedsDisplay()
     }
 
     ///
@@ -46,5 +53,9 @@ final class NewsTabBar: UITabBar {
         shapeLayer.path = path.cgPath
         shapeLayer.fillColor = UIColor.systemBackground.cgColor
         return shapeLayer
+    }
+
+    private func updateColor() {
+        self.shapeLayer?.fillColor = UIColor.systemBackground.cgColor
     }
 }

@@ -17,7 +17,7 @@ struct NewsDataResponse: Decodable {
     let totalResults: Int
     
     /// The resulting articles.
-    let results: [Article]
+    let results: [ArticleResponse]
     
     /// To go to the next page, copy the next page code (without quotes),
     /// which can be found at the bottom of the page, and add a new parameter with page
@@ -26,7 +26,7 @@ struct NewsDataResponse: Decodable {
 
 extension NewsDataResponse {
     
-    struct Article: Decodable {
+    struct ArticleResponse: Decodable {
         /// A unique id for each news article.
         let articleId: String
         /// The title of the news article.
@@ -58,7 +58,7 @@ extension NewsDataResponse {
 }
 
 
-extension NewsDataResponse.Article {
+extension NewsDataResponse.ArticleResponse {
     
     /// <#Description#>
     @available(*, deprecated, message: "Not yet implmented")
@@ -70,5 +70,11 @@ extension NewsDataResponse.Article {
     @available(*, deprecated, message: "Not yet implmented")
     var refinedCategory: String {
         self.categories.first ?? "Unknown"
+    }
+
+    /// <#Description#>
+    @available(*, deprecated, message: "Not yet implmented")
+    var formattedPublishedAt: String {
+        "Dec, 12 2024"
     }
 }
