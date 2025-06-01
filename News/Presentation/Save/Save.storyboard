@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,50 +16,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xo6-ey-SZ3">
-                                <rect key="frame" x="178" y="415.66666666666669" width="37" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hd5-Xa-UI8" customClass="CircleButton" customModule="News" customModuleProvider="target">
-                                <rect key="frame" x="100" y="159" width="50" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKF-q1-jqe">
+                                <rect key="frame" x="8" y="118" width="377" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaK-XB-2fd">
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="50"/>
+                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="NewsBackground"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="26L-ba-8eZ"/>
-                                    <constraint firstAttribute="height" constant="50" id="vwo-7r-6Rb"/>
+                                    <constraint firstAttribute="height" constant="50" id="9Uw-lc-bkY"/>
+                                    <constraint firstItem="BaK-XB-2fd" firstAttribute="leading" secondItem="AKF-q1-jqe" secondAttribute="leading" id="FtW-dT-0dH"/>
+                                    <constraint firstAttribute="bottom" secondItem="BaK-XB-2fd" secondAttribute="bottom" id="SyC-fc-i0u"/>
+                                    <constraint firstItem="BaK-XB-2fd" firstAttribute="top" secondItem="AKF-q1-jqe" secondAttribute="top" id="tGL-Vd-sRc"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="imageScale">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="systemName" value="bookmark.fill"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="bookmark.fill"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="deselectedImageName" value="bookmark"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Grn-7h-CDq">
+                                <rect key="frame" x="0.0" y="168" width="393" height="684"/>
+                                <color key="backgroundColor" name="NewsBackground"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="1XK-ic-WEk"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="lh2-u8-LpX"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="SurfaceLight"/>
                         <constraints>
-                            <constraint firstItem="Xo6-ey-SZ3" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4KN-a1-SsS"/>
-                            <constraint firstItem="hd5-Xa-UI8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="4xg-Sa-6KJ"/>
-                            <constraint firstItem="hd5-Xa-UI8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="cly-5j-x06"/>
-                            <constraint firstItem="Xo6-ey-SZ3" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="pym-NY-Byp"/>
+                            <constraint firstItem="AKF-q1-jqe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="7sc-r5-oCd"/>
+                            <constraint firstAttribute="bottom" secondItem="Grn-7h-CDq" secondAttribute="bottom" id="AKp-6Z-Gnq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Grn-7h-CDq" secondAttribute="trailing" id="JGT-Jc-3Ed"/>
+                            <constraint firstItem="AKF-q1-jqe" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="8" id="Nvf-c3-84f"/>
+                            <constraint firstItem="Grn-7h-CDq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RTf-4M-246"/>
+                            <constraint firstItem="Grn-7h-CDq" firstAttribute="top" secondItem="AKF-q1-jqe" secondAttribute="bottom" id="UF6-nn-1Ww"/>
+                            <constraint firstAttribute="trailing" secondItem="AKF-q1-jqe" secondAttribute="trailing" constant="8" id="VA8-Ne-wcK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bookmarksTableView" destination="Grn-7h-CDq" id="UyY-fm-70r"/>
+                        <segue destination="5zr-aI-Acd" kind="show" identifier="navigateToArticleDetail" id="gRy-Ri-AdD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-166" y="0.0"/>
+            <point key="canvasLocation" x="-167.17557251908397" y="0.0"/>
+        </scene>
+        <!--ArticleDetailViewController-->
+        <scene sceneID="OW1-ae-bfK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ArticleDetail" referencedIdentifier="ArticleDetailViewController" id="5zr-aI-Acd" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Q2E-3A-1Oe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kox-m1-Fui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="478" y="0.0"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="NewsBackground">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="SurfaceLight">
             <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

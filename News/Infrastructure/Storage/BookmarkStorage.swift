@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import CoreData
 
 protocol BookmarkStorage {
+    ///
+    var fetchedResultController: NSFetchedResultsController<BookmarkEntity> { get }
     ///
     func fetchBookmarkArticles() throws -> [NewsArticleResponse]
     ///
@@ -19,7 +22,23 @@ protocol BookmarkStorage {
 final class DefaultBookmarkStorage {
 
     private let coreDataService: CoreDataService
-    
+
+    ///
+    lazy var fetchedResultController: NSFetchedResultsController<BookmarkEntity> = {
+        let request = BookmarkEntity.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(keyPath: \BookmarkEntity.publishedAt, ascending: false)
+        request.sortDescriptors = [sortDescriptor]
+        request.fetchBatchSize = 20
+
+        let resultsController = NSFetchedResultsController(
+            fetchRequest: request,
+            managedObjectContext: coreDataService.viewContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
+        return resultsController
+    }()
+
     /// <#Description#>
     /// - Parameter coreDataService: <#coreDataService description#>
     init(coreDataService: CoreDataService = CoreDataService.shared) {
