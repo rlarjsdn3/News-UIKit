@@ -36,7 +36,7 @@ extension NewsDataResponse {
         /// The author of the news article
         let authors: [String]?
         /// A small description of the news article
-        let description: String
+        let description: String?
         /// The published date of the news article
         let publishedAt: Date
         /// URL of image present in the news articles
@@ -61,20 +61,27 @@ extension NewsDataResponse {
 extension NewsDataResponse.ArticleResponse {
     
     /// <#Description#>
-    @available(*, deprecated, message: "Not yet implmented")
-    var refinedAuthor: String {
-        self.authors?.first ?? "Unknown"
+    var refinedDescription: String {
+        description ?? title
     }
     
     /// <#Description#>
-    @available(*, deprecated, message: "Not yet implmented")
-    var refinedCategory: String {
-        self.categories.first ?? "Unknown"
+    var refinedAuthor: String {
+        authors?.first?
+            .components(separatedBy: ",")
+            .first
+        ?? "Unknown"
+    }
+    
+    /// <#Description#>
+    func refinedCategory(with category: NewsCategory?) -> String {
+        categories.first(where: { $0 == category?.rawValue })
+        ?? categories.first
+        ?? "Unknown"
     }
 
     /// <#Description#>
-    @available(*, deprecated, message: "Not yet implmented")
     var formattedPublishedAt: String {
-        "Dec, 12 2024"
+        publishedAt.toString(.MMMdyyyy)
     }
 }

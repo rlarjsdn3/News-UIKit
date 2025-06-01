@@ -150,29 +150,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="402" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jBH-NC-CuL">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jBH-NC-CuL">
                                                     <rect key="frame" x="15" y="15" width="130" height="130"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="jBH-NC-CuL" secondAttribute="height" multiplier="1:1" id="asg-ua-W33"/>
+                                                        <constraint firstAttribute="height" constant="130" id="egI-eR-Nt5"/>
+                                                        <constraint firstAttribute="width" constant="130" id="sKh-h2-zzQ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="1Yu-7E-mGy">
-                                                    <rect key="frame" x="160" y="125" width="159.66666666666663" height="17"/>
+                                                    <rect key="frame" x="160" y="126" width="159.66666666666663" height="16"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Aisha Grant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glc-Wi-EOS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="66" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="66" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" name="NewsSecondaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bn8-qt-foN">
-                                                            <rect key="frame" x="72" y="0.0" width="6.6666666666666714" height="17"/>
+                                                            <rect key="frame" x="72" y="0.0" width="6.6666666666666714" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" name="NewsSecondaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec, 12 2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek0-dJ-yMS">
-                                                            <rect key="frame" x="84.666666666666657" y="0.0" width="75" height="17"/>
+                                                            <rect key="frame" x="84.666666666666657" y="0.0" width="75" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" name="NewsSecondaryLabel"/>
                                                             <nil key="highlightedColor"/>
@@ -210,7 +211,7 @@
                                                             <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system"/>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="7zo-gc-eWn" firstAttribute="leading" secondItem="Nqj-ug-F0P" secondAttribute="leading" id="1uP-uB-axZ"/>
                                                         <constraint firstItem="mSO-Ia-WAc" firstAttribute="top" secondItem="Nqj-ug-F0P" secondAttribute="top" id="9CM-MJ-giP"/>
@@ -222,12 +223,19 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why it'sgotton more difficultto get a free first-class upgrade" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIu-g8-Ifi">
-                                                    <rect key="frame" x="160" y="46" width="227" height="69"/>
+                                                    <rect key="frame" x="160" y="46" width="227" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="aI3-iC-NaC"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle.angled.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zQK-jt-ePR">
+                                                    <rect key="frame" x="45" y="45.000000000000014" width="70" height="70.666666666666657"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" name="NewsBackground"/>
                                             <constraints>
@@ -235,15 +243,19 @@
                                                 <constraint firstAttribute="bottom" secondItem="jBH-NC-CuL" secondAttribute="bottom" constant="15" id="4iB-yG-wCo"/>
                                                 <constraint firstItem="Nqj-ug-F0P" firstAttribute="top" secondItem="PR9-Tl-F6T" secondAttribute="top" constant="18" id="9Bt-Or-f7c"/>
                                                 <constraint firstItem="cIu-g8-Ifi" firstAttribute="leading" secondItem="Nqj-ug-F0P" secondAttribute="leading" id="9LE-UI-gOM"/>
+                                                <constraint firstItem="jBH-NC-CuL" firstAttribute="bottom" secondItem="zQK-jt-ePR" secondAttribute="bottom" constant="30" id="FSw-T1-Ech"/>
+                                                <constraint firstItem="zQK-jt-ePR" firstAttribute="leading" secondItem="jBH-NC-CuL" secondAttribute="leading" constant="30" id="HjC-Ce-j9q"/>
                                                 <constraint firstItem="1Yu-7E-mGy" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="cIu-g8-Ifi" secondAttribute="trailing" id="KCf-2W-K6d"/>
                                                 <constraint firstItem="jBH-NC-CuL" firstAttribute="top" secondItem="PR9-Tl-F6T" secondAttribute="top" constant="15" id="Y0V-ic-5d4"/>
                                                 <constraint firstItem="1Yu-7E-mGy" firstAttribute="top" secondItem="cIu-g8-Ifi" secondAttribute="bottom" constant="10" id="YL4-AN-Dik"/>
                                                 <constraint firstAttribute="bottom" secondItem="1Yu-7E-mGy" secondAttribute="bottom" constant="18" id="doj-rG-yN2"/>
                                                 <constraint firstItem="cIu-g8-Ifi" firstAttribute="trailing" secondItem="Nqj-ug-F0P" secondAttribute="trailing" id="fCe-Ht-xXT"/>
+                                                <constraint firstItem="zQK-jt-ePR" firstAttribute="trailing" secondItem="jBH-NC-CuL" secondAttribute="trailing" constant="-30" id="o60-Rt-pS0"/>
                                                 <constraint firstItem="jBH-NC-CuL" firstAttribute="leading" secondItem="PR9-Tl-F6T" secondAttribute="leading" constant="15" id="pXE-nx-POM"/>
                                                 <constraint firstItem="Nqj-ug-F0P" firstAttribute="trailing" secondItem="PR9-Tl-F6T" secondAttribute="trailing" constant="-15" id="qaS-oC-UNy"/>
                                                 <constraint firstItem="1Yu-7E-mGy" firstAttribute="leading" secondItem="jBH-NC-CuL" secondAttribute="trailing" constant="15" id="w4j-Pe-Via"/>
                                                 <constraint firstItem="cIu-g8-Ifi" firstAttribute="top" secondItem="Nqj-ug-F0P" secondAttribute="bottom" constant="10" id="wnC-is-nJh"/>
+                                                <constraint firstItem="jBH-NC-CuL" firstAttribute="top" secondItem="zQK-jt-ePR" secondAttribute="top" constant="-30" id="xm4-Ep-ML5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -251,10 +263,15 @@
                                             <outlet property="authorLabel" destination="Glc-Wi-EOS" id="49y-M6-Tm5"/>
                                             <outlet property="categoryLabel" destination="g4P-45-3Az" id="27s-BP-nkx"/>
                                             <outlet property="contentLabel" destination="cIu-g8-Ifi" id="dTd-UK-C8I"/>
+                                            <outlet property="placeholderImageView" destination="zQK-jt-ePR" id="0oh-uQ-caG"/>
                                             <outlet property="publishedAtLabel" destination="Ek0-dJ-yMS" id="iZS-xv-J9Z"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="rnC-p4-9gO"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Jha-cf-f05"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -274,6 +291,7 @@
                         <outlet property="allCenterXConstraint" destination="SQL-rP-E1b" id="Hfp-IQ-Tlm"/>
                         <outlet property="allEqualWidthConstraint" destination="2Pl-KX-lxa" id="mWW-Ys-h6P"/>
                         <outlet property="allLabel" destination="3zR-wf-0aQ" id="0ic-I2-PJL"/>
+                        <outlet property="articleTableView" destination="2pS-oZ-20j" id="E48-cu-4Av"/>
                         <outlet property="educationButton" destination="axp-fN-5x3" id="dkP-OQ-3uR"/>
                         <outlet property="educationCenterXConstraint" destination="gZc-en-288" id="Q8u-A1-itG"/>
                         <outlet property="educationEqualWidthConstraint" destination="TRj-7b-fw1" id="2OF-a5-ixN"/>
@@ -295,6 +313,7 @@
     </scenes>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="photo.on.rectangle.angled.fill" catalog="system" width="128" height="104"/>
         <namedColor name="NewsBackground">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -306,9 +325,6 @@
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

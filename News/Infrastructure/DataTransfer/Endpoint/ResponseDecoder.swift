@@ -22,7 +22,7 @@ struct DefaultResponseDecoder: ResponseDecoder {
     private let decoder = {
         let decoder = JSONDecoder()
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         decoder.dateDecodingStrategy = .formatted(formatter)
         return decoder
     }()

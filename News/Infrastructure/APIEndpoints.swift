@@ -43,6 +43,9 @@ struct APIEndpoints {
         )
     }
     
+    /// <#Description#>
+    /// - Parameter url: <#url description#>
+    /// - Returns: <#description#>
     static func image(
         _ url: String
     ) -> Endpoint<Data> {
@@ -50,5 +53,14 @@ struct APIEndpoints {
             baseUrl: url,
             responseDecoder: RawDataResponseDecoder()
         )
+    }
+    
+    /// <#Description#>
+    /// - Parameter url: <#url description#>
+    /// - Returns: <#description#>
+    static func image(
+        _ url: URL
+    ) -> Endpoint<Data> {
+        image(url.absoluteString)
     }
 }

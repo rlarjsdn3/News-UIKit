@@ -52,8 +52,8 @@ extension Requestable {
     /// - Throws: URLComponents 생성 실패 또는 유효하지 않은 URL 구성 시 오류를 던집니다.
     func url(with config: any NetworkConfigurable) throws -> URL {
 
-        var baseUrl = self.baseUrl ?? {
-            var url = config.baseUrl.hasSuffix("/")
+        let baseUrl = self.baseUrl ?? {
+            let url = config.baseUrl.hasSuffix("/")
             ? config.baseUrl
             : config.baseUrl + "/"
             return url.appending(path)
