@@ -12,6 +12,8 @@ final class SaveViewController: CoreViewController {
 
     @IBOutlet weak var bookmarksTableView: UITableView!
 
+    private let dataTrasnferService: any DataTransferService = DefaultDataTransferService()
+
     private lazy var fetchedResultsController = bookmarkStorage.fetchedResultController
     private let bookmarkStorage: any BookmarkStorage = DefaultBookmarkStorage()
 
@@ -44,7 +46,7 @@ final class SaveViewController: CoreViewController {
                 UINib(nibName: "NewsArticleTableViewCell", bundle: nil),
                 forCellReuseIdentifier: NewsArticleTableViewCell.id
             )
-            $0.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
+            $0.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
             $0.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         }
     }
@@ -103,6 +105,20 @@ extension SaveViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        return .init()
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: NewsArticleTableViewCell.id,
+            for: indexPath
+        ) as! NewsArticleTableViewCell
+        let targetArticle = bookmarks[indexPath.row]
+        cell.dataTransferService = dataTrasnferService
+        cell.prepare(targetArticle, with: nil)
+        return cell
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        estimatedHeightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        return 160.0
     }
 }

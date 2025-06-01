@@ -89,7 +89,7 @@ extension NewsArticleTableViewCell {
         _ article: NewsArticleResponse,
         with category: NewsCategory?
     ) {
-        prepareThumbnail(article.imageUrl)
+        prepareThumbnail(from: article.imageUrl)
         categoryLabel.text = article.refinedCategory(with: category)
         contentLabel.text = article.refinedDescription
         authorLabel.text = article.refinedAuthor
@@ -97,16 +97,20 @@ extension NewsArticleTableViewCell {
 
     }
 
-    private func prepareThumbnail(_ url: URL?) {
+    private func prepareThumbnail(from url: URL?, retryCount: Int = 3) {
         if let url = url {
             let endpoint = APIEndpoints.image(url)
-            cancellable = dataTransferService?.request(endpoint) { result in
+            cancellable = dataTransferService?.request(endpoint) { [weak self] result in
                 switch result {
                 case .success(let data):
-                    self.articleImageView.image = UIImage(data: data)
-                    self.placeholderImageView.isHidden = true
+                    self?.articleImageView.image = UIImage(data: data)
+                    self?.placeholderImageView.isHidden = true
                 case .failure(let error):
-                    print(error)
+                    if retryCount > 0 {
+                        self?.prepareThumbnail(from: url, retryCount: retryCount - 1)
+                    } else {
+                        print(error)
+                    }
                 }
             }
         }
