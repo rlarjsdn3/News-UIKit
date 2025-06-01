@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias NewsArticleResponse = NewsDataResponse.ArticleResponse
+
 struct NewsDataResponse: Decodable {
     /// Status shows the status of your request.
     /// If the request was successful then it shows “success”, in case of error it shows “error”.

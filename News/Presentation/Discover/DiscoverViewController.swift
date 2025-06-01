@@ -75,6 +75,10 @@ final class DiscoverViewController: CoreViewController {
     
     override func setupAttributes() {
         articleTableView.apply {
+            $0.register(
+                UINib(nibName: "NewsArticleTableViewCell", bundle: nil),
+                forCellReuseIdentifier: NewsArticleTableViewCell.id
+            )
             $0.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
             $0.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         }
@@ -256,7 +260,10 @@ extension DiscoverViewController: UITableViewDelegate {
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
-        
+        performSegue(
+            withIdentifier: "navigateToArticleDetail",
+            sender: nil
+        )
     }
     
     /// 사용자가 테이블 뷰를 스크롤할 때 호출되며, 현재 스크롤 위치에 따라 다음 페이지 데이터를 요청합니다.
@@ -305,9 +312,9 @@ extension DiscoverViewController: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: ArticleTableViewCell.id,
+            withIdentifier: NewsArticleTableViewCell.id,
             for: indexPath
-        ) as! ArticleTableViewCell
+        ) as! NewsArticleTableViewCell
         let targetArticle = articles[indexPath.row]
         cell.dataTransferService = dataTrasnferService
         cell.prepare(targetArticle, with: previousTappedButton)

@@ -1,15 +1,13 @@
 //
-//  ArticleTableViewCell.swift
+//  NewsArticleTableViewCell.swift
 //  News
 //
-//  Created by 김건우 on 5/31/25.
+//  Created by 김건우 on 6/2/25.
 //
 
 import UIKit
 
-typealias NewsArticleResponse = NewsDataResponse.ArticleResponse
-
-final class ArticleTableViewCell: UITableViewCell {
+final class NewsArticleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var placeholderImageView: UIImageView!
     @IBOutlet weak var articleImageView: UIImageView!
@@ -21,11 +19,11 @@ final class ArticleTableViewCell: UITableViewCell {
 
     var dataTransferService: (any DataTransferService)?
     private var cancellable: (any NetworkCancellable)?
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -37,7 +35,7 @@ final class ArticleTableViewCell: UITableViewCell {
         super.prepareForReuse()
         setupIntialState()
     }
-    
+
     private func setupIntialState() {
         cancellable?.cancel()
         articleImageView.image = nil
@@ -49,23 +47,23 @@ final class ArticleTableViewCell: UITableViewCell {
             title: "북마크 추가",
             image: UIImage(systemName: "bookmark")) { _ in
             }
-        
+
         let shareAction = UIAction(
             title: "공유하기",
             image: UIImage(systemName: "square.and.arrow.up")) { _ in
             }
-        
+
         let copyLinkAction = UIAction(
             title: "링크 복사",
             image: UIImage(systemName: "link")) { _ in
             }
-        
+
         let reportAction = UIAction(
             title: "신고하기",
             image: UIImage(systemName: "exclamationmark.bubble"),
             attributes: .destructive) { _ in
             }
-        
+
         let menu = UIMenu(
             title: "",
             children: [
@@ -75,7 +73,7 @@ final class ArticleTableViewCell: UITableViewCell {
                 reportAction
             ]
         )
-        
+
         moreButton.apply {
             $0.menu = menu
             $0.showsMenuAsPrimaryAction = true
@@ -83,8 +81,8 @@ final class ArticleTableViewCell: UITableViewCell {
     }
 }
 
-extension ArticleTableViewCell {
-    
+extension NewsArticleTableViewCell {
+
     /// <#Description#>
     /// - Parameter article: <#article description#>
     func prepare(
@@ -96,9 +94,9 @@ extension ArticleTableViewCell {
         contentLabel.text = article.refinedDescription
         authorLabel.text = article.refinedAuthor
         publishedAtLabel.text = article.formattedPublishedAt
-        
+
     }
-    
+
     private func prepareThumbnail(_ url: URL?) {
         if let url = url {
             let endpoint = APIEndpoints.image(url)
@@ -114,3 +112,4 @@ extension ArticleTableViewCell {
         }
     }
 }
+
