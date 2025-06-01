@@ -17,6 +17,7 @@ protocol ResponseDecoder {
     /// - Throws: 디코딩 실패 시 오류를 던집니다.
     func decode<T>(_ data: Data) throws -> T where T: Decodable
 }
+
 struct DefaultResponseDecoder: ResponseDecoder {
     private let decoder = {
         let decoder = JSONDecoder()
@@ -28,5 +29,23 @@ struct DefaultResponseDecoder: ResponseDecoder {
 
     func decode<T>(_ data: Data) throws -> T where T: Decodable {
         return try decoder.decode(T.self, from: data)
+    }
+}
+
+struct RawDataResponseDecoder: ResponseDecoder {
+    enum CodingKeys: String, CodingKey {
+        case `default` = ""
+    }
+    
+    func decode<T>(_ data: Data) throws -> T {
+        if T.self is Data.Type, let data = data as? T {
+            return data
+        } else {
+            let context = DecodingError.Context(
+                codingPath: [CodingKeys.default],
+                debugDescription: "expected to decode Data"
+            )
+            throw DecodingError.typeMismatch(T.self, context)
+        }
     }
 }

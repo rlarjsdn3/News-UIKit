@@ -42,4 +42,13 @@ struct APIEndpoints {
             queryParameters: queryParameters
         )
     }
+    
+    static func image(
+        _ url: String
+    ) -> Endpoint<Data> {
+        return Endpoint(
+            baseUrl: url,
+            responseDecoder: RawDataResponseDecoder()
+        )
+    }
 }

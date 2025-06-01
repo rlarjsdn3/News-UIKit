@@ -15,6 +15,9 @@ enum RequestGenerationError: Error {
 
 /// 네트워크 요청에 필요한 기본 정보를 정의하는 프로토콜입니다.
 protocol Requestable {
+    ///
+    var baseUrl: String? { get }
+    
     /// API 요청의 엔드포인트 경로입니다.
     var path: String { get }
 
@@ -49,10 +52,12 @@ extension Requestable {
     /// - Throws: URLComponents 생성 실패 또는 유효하지 않은 URL 구성 시 오류를 던집니다.
     func url(with config: any NetworkConfigurable) throws -> URL {
 
-        var baseUrl = config.baseUrl.hasSuffix("/")
-        ? config.baseUrl
-        : config.baseUrl + "/"
-        baseUrl.append(path)
+        var baseUrl = self.baseUrl ?? {
+            var url = config.baseUrl.hasSuffix("/")
+            ? config.baseUrl
+            : config.baseUrl + "/"
+            return url.appending(path)
+        }()
 
         guard var urlComponents = URLComponents(
             string: baseUrl

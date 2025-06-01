@@ -21,19 +21,21 @@ struct Endpoint<R>: ResponseRequestable {
 
     typealias Response = R
 
-    var path: String
-    var method: HttpMethodType
-    var headerParameters: [String : String]
-    var queryParametersEncodable: (any Encodable)?
-    var queryParameters: [String : Any]
-    var bodyParametersEncodable: (any Encodable)?
-    var bodyParameters: [String : Any]
-    var bodyEncoder: any BodyEncoder
-    var responseDecoder: any ResponseDecoder
+    let baseUrl: String?
+    let path: String
+    let method: HttpMethodType
+    let headerParameters: [String : String]
+    let queryParametersEncodable: (any Encodable)?
+    let queryParameters: [String : Any]
+    let bodyParametersEncodable: (any Encodable)?
+    let bodyParameters: [String : Any]
+    let bodyEncoder: any BodyEncoder
+    let responseDecoder: any ResponseDecoder
     
     /// Endpoint 객체를 초기화합니다.
     ///
     /// - Parameters:
+    ///   - baseUrl: 요청할 API 기본 주소입니다.
     ///   - path: 요청할 API 경로입니다. (예: "/books")
     ///   - method: HTTP 요청 메서드입니다. (예: .get, .post)
     ///   - headerParameters: 요청에 사용할 HTTP 헤더 필드입니다.
@@ -44,8 +46,9 @@ struct Endpoint<R>: ResponseRequestable {
     ///   - bodyEncoder: HTTP 바디 파라미터를 인코딩할 때 사용할 인코더입니다.
     ///   - responseDecoder: 응답 데이터를 디코딩할 때 사용할 디코더입니다.
     init(
-        path: String,
-        method: HttpMethodType,
+        baseUrl: String? = nil,
+        path: String = "",
+        method: HttpMethodType = .get,
         headerParameters: [String : String] = [:],
         queryParametersEncodable: (any Encodable)? = nil,
         queryParameters: [String : Any] = [:],
@@ -54,6 +57,7 @@ struct Endpoint<R>: ResponseRequestable {
         bodyEncoder: any BodyEncoder = DefaultBodyEncoder(),
         responseDecoder: any ResponseDecoder = DefaultResponseDecoder()
     ) {
+        self.baseUrl = baseUrl
         self.path = path
         self.method = method
         self.headerParameters = headerParameters

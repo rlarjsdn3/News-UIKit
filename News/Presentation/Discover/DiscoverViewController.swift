@@ -33,6 +33,8 @@ class DiscoverViewController: CoreViewController {
 
     private var previousTappedButton: UIButton?
 
+    private let dataTrasnferService: any DataTransferService = DefaultDataTransferService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
