@@ -59,8 +59,8 @@ final class SaveViewController: CoreViewController {
     }
 
     private func refreshBookmarkEntities() {
-        if let bookmarkEntities = fetchedResultsController.fetchedObjects {
-            bookmarks = bookmarkEntities.compactMap { $0.toNewsArticleResponse() }
+        if let entities = fetchedResultsController.fetchedObjects {
+            bookmarks = entities.map { $0.toNewsArticleResponse() }
         }
     }
 }

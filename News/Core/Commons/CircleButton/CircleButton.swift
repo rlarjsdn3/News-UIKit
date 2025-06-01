@@ -79,7 +79,7 @@ extension CircleButton {
     /// <#Description#>
     /// - Parameter bool: <#bool description#>
     func setToggle(_ bool: Bool) {
-        isSelected = !isSelected
+        isSelected = bool
     }
     
     /// <#Description#>
@@ -92,7 +92,7 @@ extension CircleButton {
     
     /// <#Description#>
     /// - Parameter name: <#name description#>
-    private func updateImageIfDeselectedImageExists(_ name: String?) {
+    private func updateImageIfDeselectedImageExists(_ deselectedImageName: String?) {
         if let deselectedImageName = deselectedImageName {
             updateImage(isSelected ? imageName : deselectedImageName)
         }
