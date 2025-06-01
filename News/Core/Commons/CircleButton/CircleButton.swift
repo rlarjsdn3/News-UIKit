@@ -52,14 +52,18 @@ final class CircleButton: UIView, NibLodable {
         imageView.alpha = 0.25
     }
     
-    @IBAction func touchUpOutside(_ sender: Any) {
+    @IBAction func touchUpOutsideButton(_ sender: Any) {
         imageView.alpha = 1.0
     }
     
     @IBAction func touchUpInsideButton(_ sender: Any) {
         toggle()
         imageView.alpha = 1.0
-        delegate?.circleButtonDidTapped(self)
+        delegate?.circleButton(
+            self,
+            didTappedButton: imageName,
+            for: tag
+        )
     }
     
 }

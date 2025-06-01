@@ -266,6 +266,7 @@
                                             <outlet property="moreButton" destination="mSO-Ia-WAc" id="7Qe-fL-Rq1"/>
                                             <outlet property="placeholderImageView" destination="zQK-jt-ePR" id="0oh-uQ-caG"/>
                                             <outlet property="publishedAtLabel" destination="Ek0-dJ-yMS" id="iZS-xv-J9Z"/>
+                                            <segue destination="POo-PT-26y" kind="show" id="Rwd-GR-gjZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -310,6 +311,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.31343283582089" y="-2.7459954233409607"/>
+        </scene>
+        <!--ArticleDetailViewController-->
+        <scene sceneID="y98-i8-XmW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ArticleDetail" referencedIdentifier="ArticleDetailViewController" id="POo-PT-26y" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="DSB-6u-xhb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gjK-fH-njk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="859" y="-3"/>
         </scene>
     </scenes>
     <resources>

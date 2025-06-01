@@ -10,5 +10,9 @@ import Foundation
 ///
 protocol CircleButtonDelegate: AnyObject {
     ///
-    func circleButtonDidTapped(_ button: CircleButton)
+    func circleButton(
+        _ button: CircleButton,
+        didTappedButton imageName: String,
+        for tag: Int
+    )
 }

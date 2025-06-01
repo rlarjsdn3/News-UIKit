@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,29 +17,108 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ArticleDetail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umn-5U-10a">
-                                <rect key="frame" x="150" y="415.66666666666669" width="93" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3BQ-x2-wrx">
+                                <rect key="frame" x="8" y="118" width="377" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRy-Ic-cWU" customClass="CircleButton" customModule="News" customModuleProvider="target">
+                                        <rect key="frame" x="327" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="ellipsis"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Bu-n0-cQa" customClass="CircleButton" customModule="News" customModuleProvider="target">
+                                        <rect key="frame" x="269" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="7Bu-n0-cQa" secondAttribute="height" id="y2u-a9-z0X"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="bookmark.fill"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="deselectedImageName" value="bookmark"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9KZ-9k-baT" customClass="CircleButton" customModule="News" customModuleProvider="target">
+                                        <rect key="frame" x="211" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="9KZ-9k-baT" secondAttribute="height" id="9GS-hB-etO"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="link"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANM-Sm-Uer" customClass="CircleButton" customModule="News" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ANM-Sm-Uer" secondAttribute="height" id="2D1-wW-ybc"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="chevron.left"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="NewsBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Dac-Iz-XNb"/>
+                                    <constraint firstItem="7Bu-n0-cQa" firstAttribute="top" secondItem="3BQ-x2-wrx" secondAttribute="top" id="KoQ-GH-3Ua"/>
+                                    <constraint firstAttribute="bottom" secondItem="9KZ-9k-baT" secondAttribute="bottom" id="M5X-Wb-33e"/>
+                                    <constraint firstItem="CRy-Ic-cWU" firstAttribute="top" secondItem="3BQ-x2-wrx" secondAttribute="top" id="MSe-Hd-bCZ"/>
+                                    <constraint firstItem="ANM-Sm-Uer" firstAttribute="top" secondItem="3BQ-x2-wrx" secondAttribute="top" id="OZq-dd-gJc"/>
+                                    <constraint firstAttribute="bottom" secondItem="CRy-Ic-cWU" secondAttribute="bottom" id="Qcf-jZ-sjI"/>
+                                    <constraint firstItem="ANM-Sm-Uer" firstAttribute="leading" secondItem="3BQ-x2-wrx" secondAttribute="leading" id="XUw-tl-lR2"/>
+                                    <constraint firstItem="7Bu-n0-cQa" firstAttribute="leading" secondItem="9KZ-9k-baT" secondAttribute="trailing" constant="8" id="Z6z-Cd-ah3"/>
+                                    <constraint firstAttribute="trailing" secondItem="CRy-Ic-cWU" secondAttribute="trailing" id="ZJr-2q-LBg"/>
+                                    <constraint firstItem="9KZ-9k-baT" firstAttribute="top" secondItem="3BQ-x2-wrx" secondAttribute="top" id="fZW-SX-3Wt"/>
+                                    <constraint firstItem="CRy-Ic-cWU" firstAttribute="width" secondItem="CRy-Ic-cWU" secondAttribute="height" id="heM-7z-P0D"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Bu-n0-cQa" secondAttribute="bottom" id="hv1-s0-0al"/>
+                                    <constraint firstItem="CRy-Ic-cWU" firstAttribute="leading" secondItem="7Bu-n0-cQa" secondAttribute="trailing" constant="8" id="mdL-2G-Y82"/>
+                                    <constraint firstAttribute="bottom" secondItem="ANM-Sm-Uer" secondAttribute="bottom" id="oES-tv-2m5"/>
+                                </constraints>
+                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtM-XI-F6Y">
+                                <rect key="frame" x="0.0" y="176" width="393" height="676"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" name="SurfaceLight"/>
+                        <color key="backgroundColor" name="NewsBackground"/>
                         <constraints>
-                            <constraint firstItem="Umn-5U-10a" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="6Iq-hQ-5pb"/>
-                            <constraint firstItem="Umn-5U-10a" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="OQh-Rt-jk4"/>
+                            <constraint firstItem="QtM-XI-F6Y" firstAttribute="top" secondItem="3BQ-x2-wrx" secondAttribute="bottom" constant="8" id="7Z6-tM-yWU"/>
+                            <constraint firstItem="3BQ-x2-wrx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="EEI-yb-zS5"/>
+                            <constraint firstItem="3BQ-x2-wrx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="NrF-uI-BK1"/>
+                            <constraint firstItem="QtM-XI-F6Y" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QM8-Qs-qT2"/>
+                            <constraint firstItem="3BQ-x2-wrx" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-8" id="RqX-ra-kSK"/>
+                            <constraint firstAttribute="bottom" secondItem="QtM-XI-F6Y" secondAttribute="bottom" id="TyH-Sd-pbR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="3BQ-x2-wrx" secondAttribute="top" id="nGk-HU-7hM"/>
+                            <constraint firstItem="QtM-XI-F6Y" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="r0X-53-SgG"/>
+                            <constraint firstItem="ANM-Sm-Uer" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="8" id="t7E-Y6-QT2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="ANM-Sm-Uer" id="qFD-SN-De5"/>
+                        <outlet property="bookmarkButton" destination="7Bu-n0-cQa" id="Q9w-gG-RUp"/>
+                        <outlet property="moreButton" destination="CRy-Ic-cWU" id="KTM-Vh-M5T"/>
+                        <outlet property="sharingButton" destination="9KZ-9k-baT" id="09r-XW-lxo"/>
+                        <outlet property="webView" destination="QtM-XI-F6Y" id="O9h-M2-hjb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="-2"/>
+            <point key="canvasLocation" x="138.1679389312977" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
-        <namedColor name="SurfaceLight">
-            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="NewsBackground">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

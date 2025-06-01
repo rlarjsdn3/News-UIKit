@@ -62,12 +62,15 @@ final class DiscoverViewController: CoreViewController {
         // All 버튼이 선택된 상태로 시작
         didTapAllButton(allButton)
     }
-    
+
     override func prepare(
         for segue: UIStoryboardSegue,
         sender: Any?
     ) {
-        // TOOD: - 셀을 선택하면 다음 화면으로 링크 전송
+        if let vc = segue.destination as? ArticleDetailViewController,
+           let indexPath = articleTableView.indexPathForSelectedRow  {
+            vc.article = articles[indexPath.row]
+        }
     }
     
     override func setupAttributes() {
