@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,11 +23,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hd5-Xa-UI8" customClass="CircleButton" customModule="News" customModuleProvider="target">
+                                <rect key="frame" x="100" y="159" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="26L-ba-8eZ"/>
+                                    <constraint firstAttribute="height" constant="50" id="vwo-7r-6Rb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageScale">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="systemName" value="bookmark.fill"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="bookmark.fill"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="deselectedImageName" value="bookmark"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="SurfaceLight"/>
                         <constraints>
                             <constraint firstItem="Xo6-ey-SZ3" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4KN-a1-SsS"/>
+                            <constraint firstItem="hd5-Xa-UI8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="4xg-Sa-6KJ"/>
+                            <constraint firstItem="hd5-Xa-UI8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="cly-5j-x06"/>
                             <constraint firstItem="Xo6-ey-SZ3" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="pym-NY-Byp"/>
                         </constraints>
                     </view>
@@ -40,5 +59,8 @@
         <namedColor name="SurfaceLight">
             <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
