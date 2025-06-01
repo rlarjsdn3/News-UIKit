@@ -39,8 +39,17 @@ final class DiscoverViewController: CoreViewController {
     }
     ///
     private var previousTappedButton: NewsCategory?
+    
     ///
     private var nextPage: String?
+    ///
+    private var isFetching: Bool = false
+    ///
+    private var loadedNextPage: [String] = []
+    ///
+    private func hasLoadedNextPage(_ nextPage: String) -> Bool {
+        loadedNextPage.firstIndex(of: nextPage) != nil
+    }
 
     private let dataTrasnferService: any DataTransferService = DefaultDataTransferService()
     
@@ -69,6 +78,9 @@ final class DiscoverViewController: CoreViewController {
     }
 
     @IBAction func didTapAllButton(_ sender: UIButton) {
+        nextPage = nil
+        loadedNextPage.removeAll()
+        articles.removeAll()
         fetchArticles(nil)
         
         adjustUnderlineView(
@@ -90,6 +102,9 @@ final class DiscoverViewController: CoreViewController {
     }
     
     @IBAction func didTapPoliticsButton(_ sender: UIButton) {
+        nextPage = nil
+        loadedNextPage.removeAll()
+        articles.removeAll()
         fetchArticles(.politics)
         
         adjustUnderlineView(
@@ -111,6 +126,9 @@ final class DiscoverViewController: CoreViewController {
     }
     
     @IBAction func didTapTechnologyButton(_ sender: UIButton) {
+        nextPage = nil
+        loadedNextPage.removeAll()
+        articles.removeAll()
         fetchArticles(.technology)
         
         adjustUnderlineView(
@@ -133,6 +151,9 @@ final class DiscoverViewController: CoreViewController {
     }
 
     @IBAction func didTapEducationButton(_ sender: UIButton) {
+        nextPage = nil
+        loadedNextPage.removeAll()
+        articles.removeAll()
         fetchArticles(.education)
         
         adjustUnderlineView(
@@ -200,21 +221,25 @@ extension DiscoverViewController {
     ///   - force: <#force description#>
     private func fetchArticles(
         _ category: NewsCategory? = nil,
-        force: Bool = false
+        nextPage: String? = nil,
+        force: Bool = false,
+        completion: (() -> Void)? = nil
     ) {
         // 이전에 탭한 카테고리 버튼과 동일하지 않을 경우, 기사를 새로 로드
         if force || previousTappedButton != category {
-            articles.removeAll()
             let endpoint = APIEndpoints.latest(
                 category: category,
                 nextPage: nextPage
             )
-            dataTrasnferService.request(endpoint) { result in
+            dataTrasnferService.request(endpoint) { [weak self] result in
                 switch result {
                 case .success(let value):
-                    self.articles = value.results
+                    self?.articles.append(contentsOf: value.results)
+                    self?.nextPage = value.nextPage
+                    completion?()
                 case .failure(let error):
                     print(error)
+                    completion?()
                 }
             }
         }
@@ -229,6 +254,37 @@ extension DiscoverViewController: UITableViewDelegate {
         didSelectRowAt indexPath: IndexPath
     ) {
         
+    }
+    
+    /// 사용자가 테이블 뷰를 스크롤할 때 호출되며, 현재 스크롤 위치에 따라 다음 페이지 데이터를 요청합니다.
+    ///
+    /// `contentOffset.y >= contentHeight - height - 300`는
+    /// 현재 스크롤 위치가 전체 콘텐츠 하단에서 300pt 이내로 도달했는지를 확인하여,
+    /// 해당 조건을 만족할 때 다음 페이지 데이터를 요청하도록 합니다.
+    ///
+    /// - `nextPage`가 존재해야 하며,
+    /// - 중복 요청을 막기 위해 `loadedNextPage`에 없어야 하며,
+    /// - 현재 네트워크 요청 중이 아닐 때만 실행 (`isFetching` 사용)
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let inset = scrollView.contentInset
+        let contentHeight = scrollView.contentSize.height + inset.top + inset.bottom
+        let contentOffset = scrollView.contentOffset
+        let height = scrollView.bounds.height
+
+        if contentOffset.y >= contentHeight - height - 300 {
+            if let nextPage = nextPage, !hasLoadedNextPage(nextPage), !isFetching {
+                isFetching = true
+                loadedNextPage.append(nextPage)
+
+                fetchArticles(
+                    previousTappedButton,
+                    nextPage: nextPage,
+                    force: true
+                ) {
+                    self.isFetching = false
+                }
+            }
+        }
     }
 }
 

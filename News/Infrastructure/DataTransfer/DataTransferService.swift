@@ -150,7 +150,7 @@ extension DefaultDataTransferService: DataTransferService {
             let result: T = try decoder.decode(data)
             return .success(result)
         } catch {
-            // self.errorLogger.log(error: error)
+//            self.errorLogger.log(error: error)
             return .failure(.parsing(error))
         }
     }
