@@ -17,6 +17,7 @@ final class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var publishedAtLabel: UILabel!
+    @IBOutlet weak var moreButton: UIButton!
 
     var dataTransferService: (any DataTransferService)?
     private var cancellable: (any NetworkCancellable)?
@@ -27,13 +28,13 @@ final class ArticleTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
+        setupMenu()
         setupIntialState()
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         setupIntialState()
     }
     
@@ -41,6 +42,44 @@ final class ArticleTableViewCell: UITableViewCell {
         cancellable?.cancel()
         articleImageView.image = nil
         placeholderImageView.isHidden = false
+    }
+
+    private func setupMenu() {
+        let bookmarkAction = UIAction(
+            title: "북마크 추가",
+            image: UIImage(systemName: "bookmark")) { _ in
+            }
+        
+        let shareAction = UIAction(
+            title: "공유하기",
+            image: UIImage(systemName: "square.and.arrow.up")) { _ in
+            }
+        
+        let copyLinkAction = UIAction(
+            title: "링크 복사",
+            image: UIImage(systemName: "link")) { _ in
+            }
+        
+        let reportAction = UIAction(
+            title: "신고하기",
+            image: UIImage(systemName: "exclamationmark.bubble"),
+            attributes: .destructive) { _ in
+            }
+        
+        let menu = UIMenu(
+            title: "",
+            children: [
+                bookmarkAction,
+                shareAction,
+                copyLinkAction,
+                reportAction
+            ]
+        )
+        
+        moreButton.apply {
+            $0.menu = menu
+            $0.showsMenuAsPrimaryAction = true
+        }
     }
 }
 
