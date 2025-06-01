@@ -21,7 +21,7 @@ extension BookmarkEntity {
         self.init(context: context)
         self.articleId = response.articleId
         self.title = response.title
-        self.category = response.categories
+        self.categories = response.categories
         self.desc = response.description
         self.imageUrl = response.imageUrl
         self.link = response.link

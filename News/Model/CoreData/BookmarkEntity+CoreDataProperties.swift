@@ -16,14 +16,14 @@ extension BookmarkEntity {
         return NSFetchRequest<BookmarkEntity>(entityName: "BookmarkEntity")
     }
 
-    @NSManaged public var articleId: String?
-    @NSManaged public var author: String?
-    @NSManaged public var category: [String]?
+    @NSManaged public var articleId: String
+    @NSManaged public var authors: [String]?
+    @NSManaged public var categories: [String]
     @NSManaged public var desc: String?
     @NSManaged public var imageUrl: URL?
-    @NSManaged public var link: URL?
-    @NSManaged public var publishedAt: Date?
-    @NSManaged public var title: String?
+    @NSManaged public var link: URL
+    @NSManaged public var publishedAt: Date
+    @NSManaged public var title: String
 
 }
 
