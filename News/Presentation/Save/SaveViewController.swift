@@ -67,10 +67,6 @@ final class SaveViewController: CoreViewController {
     }
 }
 
-extension SaveViewController {
-
-}
-
 extension SaveViewController: NSFetchedResultsControllerDelegate {
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<any NSFetchRequestResult>) {

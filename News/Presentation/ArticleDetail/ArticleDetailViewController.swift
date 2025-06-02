@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class ArticleDetailViewController: CoreViewController {
+final class ArticleDetailViewController: CoreViewController {
 
     @IBOutlet weak var backButton: CircleButton!
     @IBOutlet weak var sharingButton: CircleButton!

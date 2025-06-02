@@ -65,35 +65,35 @@ final class DiscoverViewController: CoreViewController {
         }
     }
 
-    func didTapAllButton() {
-        nextPage = nil
-        loadedNextPage.removeAll()
-        articles.removeAll()
+    private func didTapAllButton() {
+        clearAllState(nil)
         fetchArticles(nil)
     }
 
-    func didTapPoliticsButton() {
-        nextPage = nil
-        loadedNextPage.removeAll()
-        articles.removeAll()
+    private func didTapPoliticsButton() {
+        clearAllState(.politics)
         fetchArticles(.politics)
     }
     
-    func didTapTechnologyButton() {
-        nextPage = nil
-        loadedNextPage.removeAll()
-        articles.removeAll()
+    private func didTapTechnologyButton() {
+        clearAllState(.technology)
         fetchArticles(.technology)
     }
 
 
-    func didTapEducationButton() {
-        nextPage = nil
-        loadedNextPage.removeAll()
-        articles.removeAll()
+    private func didTapEducationButton() {
+        clearAllState(.education)
         fetchArticles(.education)
     }
-    
+
+    private func clearAllState(_ category: NewsCategory?) {
+        if previousTappedButton != category {
+            nextPage = nil
+            loadedNextPage.removeAll()
+            articles.removeAll()
+        }
+    }
+
 }
 
 extension DiscoverViewController {
@@ -143,7 +143,7 @@ extension DiscoverViewController: CategoryBarDeletgate {
             didTapTechnologyButton()
         case .education:
             didTapEducationButton()
-        @unknown default: // all
+        default: // all
             didTapAllButton()
         }
     }

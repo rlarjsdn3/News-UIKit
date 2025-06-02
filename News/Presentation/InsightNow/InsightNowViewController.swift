@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InsightNowViewController: CoreViewController {
+final class InsightNowViewController: CoreViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
