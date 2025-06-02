@@ -9,28 +9,7 @@ import UIKit
 
 final class DiscoverViewController: CoreViewController {
 
-    @IBOutlet weak var allButton: UIButton!
-    @IBOutlet weak var politicsButton: UIButton!
-    @IBOutlet weak var technologyButton: UIButton!
-    @IBOutlet weak var educationButton: UIButton!
-
-    @IBOutlet weak var allLabel: UILabel!
-    @IBOutlet weak var politicsLabel: UILabel!
-    @IBOutlet weak var technologyLabel: UILabel!
-    @IBOutlet weak var educationLabel: UILabel!
-    
-    @IBOutlet weak var allCenterXConstraint: NSLayoutConstraint!
-    @IBOutlet weak var allEqualWidthConstraint: NSLayoutConstraint!
-
-    @IBOutlet weak var politicsCenterXConstraint: NSLayoutConstraint!
-    @IBOutlet weak var politicsEqualWidthConstraint: NSLayoutConstraint!
-
-    @IBOutlet weak var technologyCenterXConstraint: NSLayoutConstraint!
-    @IBOutlet weak var technologyEqualWidthConstraint: NSLayoutConstraint!
-
-    @IBOutlet weak var educationCenterXConstraint: NSLayoutConstraint!
-    @IBOutlet weak var educationEqualWidthConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var categoryBar: CategoryBar!
     @IBOutlet weak var articleTableView: UITableView!
     
     ///
@@ -55,12 +34,12 @@ final class DiscoverViewController: CoreViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // 뷰가 로드될 시,
         // 최초 한번 강제로 기사 로드하고,
         fetchArticles(force: true)
         // All 버튼이 선택된 상태로 시작
-        didTapAllButton(allButton)
+        categoryBar.allButton.sendActions(for: .touchUpInside)
     }
 
     override func prepare(
@@ -74,6 +53,8 @@ final class DiscoverViewController: CoreViewController {
     }
     
     override func setupAttributes() {
+        categoryBar.delegate = self
+
         articleTableView.apply {
             $0.register(
                 UINib(nibName: "NewsArticleTableViewCell", bundle: nil),
@@ -84,143 +65,38 @@ final class DiscoverViewController: CoreViewController {
         }
     }
 
-    @IBAction func didTapAllButton(_ sender: UIButton) {
+    func didTapAllButton() {
         nextPage = nil
         loadedNextPage.removeAll()
         articles.removeAll()
         fetchArticles(nil)
-        
-        adjustUnderlineView(
-            .defaultHigh,
-            .defaultLow,
-            .defaultLow,
-            .defaultLow
-        )
-        adjustButtonTitleColor(
-            .label,
-            .newsSecondaryLabel,
-            .newsSecondaryLabel,
-            .newsSecondaryLabel
-        )
     }
 
-    @IBAction func touchDownAllButton(_ sender: UIButton) {
-        allLabel.textColor = .systemGray3
-    }
-    
-    @IBAction func didTapPoliticsButton(_ sender: UIButton) {
+    func didTapPoliticsButton() {
         nextPage = nil
         loadedNextPage.removeAll()
         articles.removeAll()
         fetchArticles(.politics)
-        
-        adjustUnderlineView(
-            .defaultLow,
-            .defaultHigh,
-            .defaultLow,
-            .defaultLow
-        )
-        adjustButtonTitleColor(
-            .newsSecondaryLabel,
-            .label,
-            .newsSecondaryLabel,
-            .newsSecondaryLabel
-        )
-    }
-
-    @IBAction func touchDownPoliticsButton(_ sender: UIButton) {
-        politicsLabel.textColor = .systemGray3
     }
     
-    @IBAction func didTapTechnologyButton(_ sender: UIButton) {
+    func didTapTechnologyButton() {
         nextPage = nil
         loadedNextPage.removeAll()
         articles.removeAll()
         fetchArticles(.technology)
-        
-        adjustUnderlineView(
-            .defaultLow,
-            .defaultLow,
-            .defaultHigh,
-            .defaultLow
-        )
-        adjustButtonTitleColor(
-            .newsSecondaryLabel,
-            .newsSecondaryLabel,
-            .label,
-            .newsSecondaryLabel
-        )
     }
 
 
-    @IBAction func touchDownTechnologyButton(_ sender: UIButton) {
-        technologyLabel.textColor = .systemGray3
-    }
-
-    @IBAction func didTapEducationButton(_ sender: UIButton) {
+    func didTapEducationButton() {
         nextPage = nil
         loadedNextPage.removeAll()
         articles.removeAll()
         fetchArticles(.education)
-        
-        adjustUnderlineView(
-            .defaultLow,
-            .defaultLow,
-            .defaultLow,
-            .defaultHigh
-        )
-        adjustButtonTitleColor(
-            .newsSecondaryLabel,
-            .newsSecondaryLabel,
-            .newsSecondaryLabel,
-            .label
-        )
-    }
-
-    @IBAction func touchDownEducationButton(_ sender: UIButton) {
-        educationLabel.textColor = .systemGray3
     }
     
 }
 
 extension DiscoverViewController {
-
-    private func adjustUnderlineView(
-        _ priority1: UILayoutPriority,
-        _ priority2: UILayoutPriority,
-        _ priority3: UILayoutPriority,
-        _ priority4: UILayoutPriority
-    ) {
-        allCenterXConstraint.priority = priority1
-        allEqualWidthConstraint.priority = priority1
-
-        politicsCenterXConstraint.priority = priority2
-        politicsEqualWidthConstraint.priority = priority2
-
-        technologyCenterXConstraint.priority = priority3
-        technologyEqualWidthConstraint.priority = priority3
-
-        educationCenterXConstraint.priority = priority4
-        educationEqualWidthConstraint.priority = priority4
-
-        UIView.animate(withDuration: 0.25) {
-            self.view.layoutIfNeeded()
-        }
-    }
-
-    private func adjustButtonTitleColor(
-        _ color1: UIColor,
-        _ color2: UIColor,
-        _ color3: UIColor,
-        _ color4: UIColor
-    ) {
-        UIView.animate(withDuration: 0.24) {
-            self.allLabel.textColor = color1
-            self.politicsLabel.textColor = color2
-            self.technologyLabel.textColor = color3
-            self.educationLabel.textColor = color4
-        }
-    }
     
     /// <#Description#>
     /// - Parameters:
@@ -251,6 +127,25 @@ extension DiscoverViewController {
             }
         }
         previousTappedButton = category
+    }
+}
+
+extension DiscoverViewController: CategoryBarDeletgate {
+
+    func categeryBar(
+        _ categeryBar: CategoryBar,
+        didSelect category: NewsCategory?
+    ) {
+        switch category {
+        case .politics:
+            didTapPoliticsButton()
+        case .technology:
+            didTapTechnologyButton()
+        case .education:
+            didTapEducationButton()
+        @unknown default: // all
+            didTapAllButton()
+        }
     }
 }
 
@@ -296,6 +191,16 @@ extension DiscoverViewController: UITableViewDelegate {
             }
         }
     }
+
+    func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
+        if indexPath.row == 0 || indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: tableView.bounds.width)
+        }
+    }
 }
 
 extension DiscoverViewController: UITableViewDataSource {
@@ -320,7 +225,7 @@ extension DiscoverViewController: UITableViewDataSource {
         cell.prepare(targetArticle, with: previousTappedButton)
         return cell
     }
-    
+
     func tableView(
         _ tableView: UITableView,
         estimatedHeightForRowAt indexPath: IndexPath

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryBar" customModule="News" customModuleProvider="target">
+            <connections>
+                <outlet property="allButton" destination="RY6-aj-9nd" id="oQK-z2-tq5"/>
+                <outlet property="allCenterXConstraint" destination="pZE-Ze-Fa3" id="eh3-7T-i9f"/>
+                <outlet property="allEqualWidthConstraint" destination="9rc-Rt-ADg" id="tec-HM-lRj"/>
+                <outlet property="allLabel" destination="8QN-8t-hed" id="TXm-El-PuC"/>
+                <outlet property="educationButton" destination="vq9-3c-rYp" id="1gt-LX-mrM"/>
+                <outlet property="educationCenterXConstraint" destination="Cif-Ar-zVw" id="0bl-L4-BDc"/>
+                <outlet property="educationEqualWidthConstraint" destination="vrc-sa-YbA" id="nCJ-fE-xC5"/>
+                <outlet property="educationLabel" destination="uxe-e5-lwW" id="lYc-Vh-vyI"/>
+                <outlet property="politicsButton" destination="BiC-XS-7uO" id="cqQ-ke-1F8"/>
+                <outlet property="politicsCenterXConstraint" destination="OvB-Q2-NXw" id="kgx-M8-Lhw"/>
+                <outlet property="politicsEqualWidthConstraint" destination="aG9-v4-Emg" id="bBK-VU-5yK"/>
+                <outlet property="politicsLabel" destination="Vrj-z9-zIy" id="ENx-1K-9qT"/>
+                <outlet property="technologyButton" destination="s4e-1d-Ha5" id="bGq-B6-JOF"/>
+                <outlet property="technologyCenterXConstraint" destination="Kwe-d6-1KU" id="b8M-y0-Gvp"/>
+                <outlet property="technologyEqualWidthConstraint" destination="hJj-fc-rg1" id="Qaz-Ag-ReS"/>
+                <outlet property="technologyLabel" destination="IXO-hE-jA7" id="HfT-fG-amj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9Xz-pz-t19">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1d-aU-Ctk">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RY6-aj-9nd">
+                            <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="40"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="didTapAllButton:" destination="-1" eventType="touchUpInside" id="JG8-oy-xzX"/>
+                                <action selector="touchDownAllButton:" destination="-1" eventType="touchDown" id="sI4-hI-bSo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiC-XS-7uO">
+                            <rect key="frame" x="53.333333333333343" y="0.0" width="97" height="40"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="didTapPoliticsButton:" destination="-1" eventType="touchUpInside" id="cF9-qy-5Ef"/>
+                                <action selector="touchDownPoliticsButton:" destination="-1" eventType="touchDown" id="FaJ-8R-Hvr"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4e-1d-Ha5">
+                            <rect key="frame" x="150.33333333333334" y="0.0" width="121.33333333333334" height="40"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="didTapTechnologyButton:" destination="-1" eventType="touchUpInside" id="eHU-rK-mbv"/>
+                                <action selector="touchDownTechnologyButton:" destination="-1" eventType="touchDown" id="hoK-ol-w0n"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq9-3c-rYp">
+                            <rect key="frame" x="271.66666666666669" y="0.0" width="121.33333333333331" height="40"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="didTapEducationButton:" destination="-1" eventType="touchUpInside" id="10y-LG-TfF"/>
+                                <action selector="touchDownEducationButton:" destination="-1" eventType="touchDown" id="Evc-MA-r5j"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QN-8t-hed">
+                            <rect key="frame" x="14.333333333333336" y="8.6666666666666643" width="25" height="23"/>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Politics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrj-z9-zIy">
+                            <rect key="frame" x="69.333333333333343" y="8.6666666666666643" width="65.333333333333343" height="23"/>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Technology" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXO-hE-jA7">
+                            <rect key="frame" x="160" y="8.6666666666666643" width="102" height="23"/>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Education" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxe-e5-lwW">
+                            <rect key="frame" x="287" y="8.6666666666666643" width="90.666666666666686" height="23"/>
+                            <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qiA-2z-ErU">
+                            <rect key="frame" x="0.0" y="39" width="393" height="1"/>
+                            <color key="backgroundColor" name="NewsSeparator"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="76M-v7-oU8"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cg2-HH-Zg4">
+                            <rect key="frame" x="14.333333333333336" y="39" width="25" height="1"/>
+                            <color key="backgroundColor" systemColor="labelColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="nbn-yd-1rH"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="8QN-8t-hed" firstAttribute="centerX" secondItem="RY6-aj-9nd" secondAttribute="centerX" id="1Wu-c4-Lz8"/>
+                        <constraint firstAttribute="bottom" secondItem="BiC-XS-7uO" secondAttribute="bottom" id="2v4-tD-hf2"/>
+                        <constraint firstAttribute="bottom" secondItem="s4e-1d-Ha5" secondAttribute="bottom" id="3ms-VU-kO1"/>
+                        <constraint firstAttribute="bottom" secondItem="Cg2-HH-Zg4" secondAttribute="bottom" id="5i4-PB-QXu"/>
+                        <constraint firstItem="uxe-e5-lwW" firstAttribute="centerX" secondItem="vq9-3c-rYp" secondAttribute="centerX" id="8Ru-2k-Sfh"/>
+                        <constraint firstItem="Cg2-HH-Zg4" firstAttribute="width" secondItem="8QN-8t-hed" secondAttribute="width" id="9rc-Rt-ADg"/>
+                        <constraint firstItem="qiA-2z-ErU" firstAttribute="leading" secondItem="S1d-aU-Ctk" secondAttribute="leading" id="BET-Uu-ita"/>
+                        <constraint firstItem="Cg2-HH-Zg4" firstAttribute="centerX" secondItem="uxe-e5-lwW" secondAttribute="centerX" priority="250" id="Cif-Ar-zVw"/>
+                        <constraint firstAttribute="trailing" secondItem="vq9-3c-rYp" secondAttribute="trailing" id="Iha-ff-G9E"/>
+                        <constraint firstItem="vq9-3c-rYp" firstAttribute="leading" secondItem="s4e-1d-Ha5" secondAttribute="trailing" id="IvY-Hc-dQq"/>
+                        <constraint firstItem="s4e-1d-Ha5" firstAttribute="top" secondItem="S1d-aU-Ctk" secondAttribute="top" id="JuY-NY-GHi"/>
+                        <constraint firstAttribute="trailing" secondItem="qiA-2z-ErU" secondAttribute="trailing" id="KQV-UL-h5x"/>
+                        <constraint firstItem="Cg2-HH-Zg4" firstAttribute="centerX" secondItem="IXO-hE-jA7" secondAttribute="centerX" priority="250" id="Kwe-d6-1KU"/>
+                        <constraint firstItem="BiC-XS-7uO" firstAttribute="leading" secondItem="RY6-aj-9nd" secondAttribute="trailing" id="Nkh-5c-Ls9"/>
+                        <constraint firstItem="8QN-8t-hed" firstAttribute="centerY" secondItem="RY6-aj-9nd" secondAttribute="centerY" id="OPF-jP-8rl"/>
+                        <constraint firstItem="Cg2-HH-Zg4" firstAttribute="centerX" secondItem="Vrj-z9-zIy" secondAttribute="centerX" priority="250" id="OvB-Q2-NXw"/>
+                        <constraint firstItem="RY6-aj-9nd" firstAttribute="width" secondItem="BiC-XS-7uO" secondAttribute="width" multiplier="0.55" id="Qyo-XX-QTd"/>
+                        <constraint firstItem="s4e-1d-Ha5" firstAttribute="width" secondItem="vq9-3c-rYp" secondAttribute="width" id="Tim-Lu-LGz"/>
+                        <constraint firstItem="RY6-aj-9nd" firstAttribute="leading" secondItem="S1d-aU-Ctk" secondAttribute="leading" id="Ygi-Lc-8Jg"/>
+                        <constraint firstItem="Cg2-HH-Zg4" firstAttribute="width" secondItem="Vrj-z9-zIy" secondAttribute="width" priority="250" id="aG9-v4-Emg"/>
+                        <constraint firstItem="Vrj-z9-zIy" firstAttribute="centerY" secondItem="BiC-XS-7uO" secondAttribute="centerY" id="aiv-gB-dxz"/>
+                        <constraint firstAttribute="bottom" secondItem="RY6-aj-9nd" secondAttribute="bottom" id="d1i-Dk-57o"/>
+                        <constraint firstItem="vq9-3c-rYp" firstAttribute="leading" secondItem="s4e-1d-Ha5" secondAttribute="trailing" id="gdR-wX-cbn"/>
+                        <constraint firstItem="Cg2-HH-Zg4" firstAttribute="width" secondItem="IXO-hE-jA7" secondAttribute="width" priority="240" id="hJj-fc-rg1"/>
+                        <constraint firstItem="Vrj-z9-zIy" firstAttribute="centerX" secondItem="BiC-XS-7uO" secondAttribute="centerX" id="iln-9E-9r5"/>
+                        <constraint firstItem="RY6-aj-9nd" firstAttribute="top" secondItem="S1d-aU-Ctk" secondAttribute="top" id="jYn-iR-8JN"/>
+                        <constraint firstItem="IXO-hE-jA7" firstAttribute="centerX" secondItem="s4e-1d-Ha5" secondAttribute="centerX" id="lfF-i4-ONn"/>
+                        <constraint firstItem="IXO-hE-jA7" firstAttribute="centerY" secondItem="s4e-1d-Ha5" secondAttribute="centerY" id="mK8-Mt-b91"/>
+                        <constraint firstItem="Cg2-HH-Zg4" firstAttribute="centerX" secondItem="8QN-8t-hed" secondAttribute="centerX" id="pZE-Ze-Fa3"/>
+                        <constraint firstItem="BiC-XS-7uO" firstAttribute="height" secondItem="s4e-1d-Ha5" secondAttribute="height" id="rBH-1E-RNa"/>
+                        <constraint firstItem="RY6-aj-9nd" firstAttribute="height" secondItem="BiC-XS-7uO" secondAttribute="height" id="tBN-Rw-Nrd"/>
+                        <constraint firstAttribute="bottom" secondItem="qiA-2z-ErU" secondAttribute="bottom" id="v9c-uF-8nT"/>
+                        <constraint firstItem="Cg2-HH-Zg4" firstAttribute="width" secondItem="uxe-e5-lwW" secondAttribute="width" priority="250" id="vrc-sa-YbA"/>
+                        <constraint firstItem="uxe-e5-lwW" firstAttribute="centerY" secondItem="vq9-3c-rYp" secondAttribute="centerY" id="vz5-rn-Bgs"/>
+                        <constraint firstItem="BiC-XS-7uO" firstAttribute="width" secondItem="s4e-1d-Ha5" secondAttribute="width" multiplier="0.8" id="xGF-wG-cpL"/>
+                        <constraint firstItem="BiC-XS-7uO" firstAttribute="top" secondItem="S1d-aU-Ctk" secondAttribute="top" id="xJY-kg-iyV"/>
+                        <constraint firstItem="vq9-3c-rYp" firstAttribute="top" secondItem="S1d-aU-Ctk" secondAttribute="top" id="y66-WO-fW6"/>
+                        <constraint firstAttribute="bottom" secondItem="vq9-3c-rYp" secondAttribute="bottom" id="yNz-pH-GhG"/>
+                        <constraint firstItem="s4e-1d-Ha5" firstAttribute="leading" secondItem="BiC-XS-7uO" secondAttribute="trailing" id="zIX-Ty-rUR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="H02-Tz-z8r"/>
+            <color key="backgroundColor" name="NewsBackground"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="S1d-aU-Ctk" secondAttribute="bottom" id="0sj-2E-EYH"/>
+                <constraint firstItem="S1d-aU-Ctk" firstAttribute="top" secondItem="9Xz-pz-t19" secondAttribute="top" id="Jcu-T8-pCJ"/>
+                <constraint firstAttribute="trailing" secondItem="S1d-aU-Ctk" secondAttribute="trailing" id="R9G-SS-UEP"/>
+                <constraint firstItem="S1d-aU-Ctk" firstAttribute="leading" secondItem="9Xz-pz-t19" secondAttribute="leading" id="p50-0g-S45"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-61.832061068702288" y="-607.04225352112678"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="NewsBackground">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="NewsSeparator">
+            <color red="0.9100000262260437" green="0.9100000262260437" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

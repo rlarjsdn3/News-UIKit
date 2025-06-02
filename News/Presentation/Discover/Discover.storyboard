@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,128 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1u-aV-NQu">
-                                <rect key="frame" x="0.0" y="124" width="402" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIr-l3-FoA">
-                                        <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="40"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
-                                        <connections>
-                                            <action selector="didTapAllButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pHP-Qx-TyF"/>
-                                            <action selector="touchDownAllButton:" destination="Y6W-OH-hqX" eventType="touchDown" id="Z7l-g9-eK1"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ax9-7Q-wCC">
-                                        <rect key="frame" x="54.666666666666664" y="0.0" width="99.333333333333343" height="40"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
-                                        <connections>
-                                            <action selector="didTapPoliticsButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ybJ-ll-gwT"/>
-                                            <action selector="touchDownPoliticsButton:" destination="Y6W-OH-hqX" eventType="touchDown" id="CKp-5g-cxg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxa-qe-Ig4">
-                                        <rect key="frame" x="154" y="0.0" width="124" height="40"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
-                                        <connections>
-                                            <action selector="didTapTechnologyButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QGB-wh-dmw"/>
-                                            <action selector="touchDownTechnologyButton:" destination="Y6W-OH-hqX" eventType="touchDown" id="abu-jt-Ue9"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axp-fN-5x3">
-                                        <rect key="frame" x="278" y="0.0" width="124" height="40"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
-                                        <connections>
-                                            <action selector="didTapEducationButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZbC-Cq-93K"/>
-                                            <action selector="touchDownEducationButton:" destination="Y6W-OH-hqX" eventType="touchDown" id="9lj-EI-byR"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zR-wf-0aQ">
-                                        <rect key="frame" x="14.666666666666664" y="8.6666666666666572" width="25" height="23"/>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Politics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY4-ZJ-XAl">
-                                        <rect key="frame" x="71.666666666666686" y="8.6666666666666572" width="65.333333333333314" height="23"/>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Technology" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqh-P0-lbV">
-                                        <rect key="frame" x="165" y="8.6666666666666572" width="102" height="23"/>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Education" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEl-ui-xvG">
-                                        <rect key="frame" x="294.66666666666669" y="8.6666666666666572" width="90.666666666666686" height="23"/>
-                                        <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0b-Kj-dLf">
-                                        <rect key="frame" x="0.0" y="39" width="402" height="1"/>
-                                        <color key="backgroundColor" name="NewsSeparator"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="ssY-W5-v9l"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MF7-cF-Niy">
-                                        <rect key="frame" x="14.666666666666664" y="39" width="25" height="1"/>
-                                        <color key="backgroundColor" systemColor="labelColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="67C-Xd-pWJ"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="MF7-cF-Niy" firstAttribute="width" secondItem="3zR-wf-0aQ" secondAttribute="width" id="2Pl-KX-lxa"/>
-                                    <constraint firstItem="KEl-ui-xvG" firstAttribute="centerY" secondItem="axp-fN-5x3" secondAttribute="centerY" id="3aK-DP-szW"/>
-                                    <constraint firstAttribute="bottom" secondItem="MF7-cF-Niy" secondAttribute="bottom" id="4Ae-qw-dq7"/>
-                                    <constraint firstAttribute="bottom" secondItem="HIr-l3-FoA" secondAttribute="bottom" id="4aA-Ae-PfA"/>
-                                    <constraint firstItem="MF7-cF-Niy" firstAttribute="centerX" secondItem="yqh-P0-lbV" secondAttribute="centerX" priority="250" id="5vL-oM-ZLr"/>
-                                    <constraint firstItem="ax9-7Q-wCC" firstAttribute="top" secondItem="a1u-aV-NQu" secondAttribute="top" id="BCp-hh-ZgP"/>
-                                    <constraint firstItem="oxa-qe-Ig4" firstAttribute="top" secondItem="a1u-aV-NQu" secondAttribute="top" id="CR9-gD-PbR"/>
-                                    <constraint firstItem="MF7-cF-Niy" firstAttribute="centerX" secondItem="xY4-ZJ-XAl" secondAttribute="centerX" priority="250" id="D8m-b7-5dk"/>
-                                    <constraint firstItem="3zR-wf-0aQ" firstAttribute="centerX" secondItem="HIr-l3-FoA" secondAttribute="centerX" id="GxY-bA-gJ8"/>
-                                    <constraint firstAttribute="height" constant="40" id="Hch-19-NEV"/>
-                                    <constraint firstItem="HIr-l3-FoA" firstAttribute="width" secondItem="ax9-7Q-wCC" secondAttribute="width" multiplier="0.55" id="RHq-qa-G9p"/>
-                                    <constraint firstAttribute="bottom" secondItem="ax9-7Q-wCC" secondAttribute="bottom" id="Rjh-qp-mzF"/>
-                                    <constraint firstItem="HIr-l3-FoA" firstAttribute="top" secondItem="a1u-aV-NQu" secondAttribute="top" id="S6G-eE-xog"/>
-                                    <constraint firstItem="MF7-cF-Niy" firstAttribute="centerX" secondItem="3zR-wf-0aQ" secondAttribute="centerX" id="SQL-rP-E1b"/>
-                                    <constraint firstItem="MF7-cF-Niy" firstAttribute="width" secondItem="KEl-ui-xvG" secondAttribute="width" priority="250" id="TRj-7b-fw1"/>
-                                    <constraint firstAttribute="trailing" secondItem="Q0b-Kj-dLf" secondAttribute="trailing" id="UeX-DI-bnF"/>
-                                    <constraint firstItem="xY4-ZJ-XAl" firstAttribute="centerX" secondItem="ax9-7Q-wCC" secondAttribute="centerX" id="Uqj-9F-G2R"/>
-                                    <constraint firstItem="ax9-7Q-wCC" firstAttribute="height" secondItem="oxa-qe-Ig4" secondAttribute="height" id="XU9-2T-F5F"/>
-                                    <constraint firstItem="oxa-qe-Ig4" firstAttribute="width" secondItem="axp-fN-5x3" secondAttribute="width" id="XWL-B2-etZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="axp-fN-5x3" secondAttribute="trailing" id="bAU-7c-MJw"/>
-                                    <constraint firstItem="oxa-qe-Ig4" firstAttribute="leading" secondItem="ax9-7Q-wCC" secondAttribute="trailing" id="bUA-kw-S05"/>
-                                    <constraint firstItem="axp-fN-5x3" firstAttribute="leading" secondItem="oxa-qe-Ig4" secondAttribute="trailing" id="bm3-fV-zFL"/>
-                                    <constraint firstItem="xY4-ZJ-XAl" firstAttribute="centerY" secondItem="ax9-7Q-wCC" secondAttribute="centerY" id="cjU-me-fOn"/>
-                                    <constraint firstItem="HIr-l3-FoA" firstAttribute="leading" secondItem="a1u-aV-NQu" secondAttribute="leading" id="cwi-9j-m5j"/>
-                                    <constraint firstItem="MF7-cF-Niy" firstAttribute="centerX" secondItem="KEl-ui-xvG" secondAttribute="centerX" priority="250" id="gZc-en-288"/>
-                                    <constraint firstItem="axp-fN-5x3" firstAttribute="leading" secondItem="oxa-qe-Ig4" secondAttribute="trailing" id="gfe-3J-ilZ"/>
-                                    <constraint firstItem="3zR-wf-0aQ" firstAttribute="centerY" secondItem="HIr-l3-FoA" secondAttribute="centerY" id="i6b-51-xTN"/>
-                                    <constraint firstAttribute="bottom" secondItem="oxa-qe-Ig4" secondAttribute="bottom" id="joe-FU-Lxh"/>
-                                    <constraint firstAttribute="bottom" secondItem="axp-fN-5x3" secondAttribute="bottom" id="kI6-xO-MDd"/>
-                                    <constraint firstItem="yqh-P0-lbV" firstAttribute="centerX" secondItem="oxa-qe-Ig4" secondAttribute="centerX" id="lhu-w5-wmz"/>
-                                    <constraint firstItem="ax9-7Q-wCC" firstAttribute="width" secondItem="oxa-qe-Ig4" secondAttribute="width" multiplier="0.8" id="mcM-zh-WHJ"/>
-                                    <constraint firstItem="KEl-ui-xvG" firstAttribute="centerX" secondItem="axp-fN-5x3" secondAttribute="centerX" id="neu-F3-Mxo"/>
-                                    <constraint firstItem="ax9-7Q-wCC" firstAttribute="leading" secondItem="HIr-l3-FoA" secondAttribute="trailing" id="rmE-AF-r2Z"/>
-                                    <constraint firstAttribute="bottom" secondItem="Q0b-Kj-dLf" secondAttribute="bottom" id="sDS-mU-HxQ"/>
-                                    <constraint firstItem="yqh-P0-lbV" firstAttribute="centerY" secondItem="oxa-qe-Ig4" secondAttribute="centerY" id="uFo-Qi-fu2"/>
-                                    <constraint firstItem="Q0b-Kj-dLf" firstAttribute="leading" secondItem="a1u-aV-NQu" secondAttribute="leading" id="wzM-OA-DkA"/>
-                                    <constraint firstItem="MF7-cF-Niy" firstAttribute="width" secondItem="yqh-P0-lbV" secondAttribute="width" priority="240" id="xUF-AR-ptR"/>
-                                    <constraint firstItem="MF7-cF-Niy" firstAttribute="width" secondItem="xY4-ZJ-XAl" secondAttribute="width" priority="250" id="xZs-Db-XYL"/>
-                                    <constraint firstItem="HIr-l3-FoA" firstAttribute="height" secondItem="ax9-7Q-wCC" secondAttribute="height" id="xc2-sI-q9e"/>
-                                    <constraint firstItem="axp-fN-5x3" firstAttribute="top" secondItem="a1u-aV-NQu" secondAttribute="top" id="yrZ-c7-SXb"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2pS-oZ-20j">
                                 <rect key="frame" x="0.0" y="164" width="402" height="710"/>
                                 <color key="backgroundColor" name="NewsBackground"/>
@@ -147,37 +24,29 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="Jha-cf-f05"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdN-VJ-kfJ" customClass="CategoryBar" customModule="News" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="124" width="402" height="40"/>
+                                <color key="backgroundColor" name="NewsBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Nwv-Yp-0Cl"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="NewsBackground"/>
                         <constraints>
-                            <constraint firstItem="2pS-oZ-20j" firstAttribute="top" secondItem="a1u-aV-NQu" secondAttribute="bottom" id="5Pa-2t-Zhg"/>
-                            <constraint firstItem="a1u-aV-NQu" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="MDQ-1p-w66"/>
                             <constraint firstItem="2pS-oZ-20j" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="SR7-vQ-lFU"/>
                             <constraint firstItem="2pS-oZ-20j" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="YKk-8E-aOc"/>
-                            <constraint firstItem="a1u-aV-NQu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="b2E-xz-TNr"/>
-                            <constraint firstItem="a1u-aV-NQu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ecb-4P-zS2"/>
+                            <constraint firstItem="EdN-VJ-kfJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="eKz-Gv-umt"/>
+                            <constraint firstItem="EdN-VJ-kfJ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="pg2-Ha-La7"/>
                             <constraint firstAttribute="bottom" secondItem="2pS-oZ-20j" secondAttribute="bottom" id="qAl-WM-k8j"/>
+                            <constraint firstItem="2pS-oZ-20j" firstAttribute="top" secondItem="EdN-VJ-kfJ" secondAttribute="bottom" id="tFv-hV-KFa"/>
+                            <constraint firstItem="EdN-VJ-kfJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="zC9-bg-Zgx"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="allButton" destination="HIr-l3-FoA" id="hOc-Ze-Clu"/>
-                        <outlet property="allCenterXConstraint" destination="SQL-rP-E1b" id="Hfp-IQ-Tlm"/>
-                        <outlet property="allEqualWidthConstraint" destination="2Pl-KX-lxa" id="mWW-Ys-h6P"/>
-                        <outlet property="allLabel" destination="3zR-wf-0aQ" id="0ic-I2-PJL"/>
                         <outlet property="articleTableView" destination="2pS-oZ-20j" id="E48-cu-4Av"/>
-                        <outlet property="educationButton" destination="axp-fN-5x3" id="dkP-OQ-3uR"/>
-                        <outlet property="educationCenterXConstraint" destination="gZc-en-288" id="Q8u-A1-itG"/>
-                        <outlet property="educationEqualWidthConstraint" destination="TRj-7b-fw1" id="2OF-a5-ixN"/>
-                        <outlet property="educationLabel" destination="KEl-ui-xvG" id="RMO-zb-dyY"/>
-                        <outlet property="politicsButton" destination="ax9-7Q-wCC" id="yJR-5d-OOq"/>
-                        <outlet property="politicsCenterXConstraint" destination="D8m-b7-5dk" id="Ycl-n0-TQq"/>
-                        <outlet property="politicsEqualWidthConstraint" destination="xZs-Db-XYL" id="IAG-VL-BEp"/>
-                        <outlet property="politicsLabel" destination="xY4-ZJ-XAl" id="JkK-NZ-xQ0"/>
-                        <outlet property="technologyButton" destination="oxa-qe-Ig4" id="vs4-Vq-AfQ"/>
-                        <outlet property="technologyCenterXConstraint" destination="5vL-oM-ZLr" id="mHY-63-Zf4"/>
-                        <outlet property="technologyEqualWidthConstraint" destination="xUF-AR-ptR" id="pfu-qn-tDq"/>
-                        <outlet property="technologyLabel" destination="yqh-P0-lbV" id="DRP-O9-pQq"/>
+                        <outlet property="categoryBar" destination="EdN-VJ-kfJ" id="ciC-LJ-nwN"/>
                         <segue destination="POo-PT-26y" kind="show" identifier="navigateToArticleDetail" id="ZYd-y4-keN"/>
                     </connections>
                 </viewController>
@@ -200,11 +69,5 @@
         <namedColor name="NewsBackground">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="NewsSeparator">
-            <color red="0.9100000262260437" green="0.9100000262260437" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
