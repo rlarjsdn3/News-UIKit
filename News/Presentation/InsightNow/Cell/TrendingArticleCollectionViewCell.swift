@@ -28,6 +28,7 @@ final class TrendingArticleCollectionViewCell: UICollectionViewCell {
         
         cancellable?.cancel()
         articleImageView.image = nil
+        placeholderImageView.isHidden = true
     }
 }
 
@@ -47,10 +48,7 @@ extension TrendingArticleCollectionViewCell {
     /// - Parameters:
     ///   - url: <#url description#>
     ///   - retryCount: <#retryCount description#>
-    private func prepareThumbnail(
-        from url: URL?,
-        retryCount: Int = 3
-    ) {
+    private func prepareThumbnail(from url: URL?) {
         if let url = url {
             let endpoint = APIEndpoints.image(url)
             cancellable = dataTransferService?.request(endpoint) { [weak self] result in
@@ -59,13 +57,11 @@ extension TrendingArticleCollectionViewCell {
                     self?.articleImageView.image = UIImage(data: data)
                     self?.placeholderImageView.isHidden = true
                 case .failure(let error):
-                    if retryCount > 0 {
-                        self?.prepareThumbnail(from: url, retryCount: retryCount - 1)
-                    } else {
-                        self?.placeholderImageView.isHidden = false
-                    }
+                    self?.placeholderImageView.isHidden = false
                 }
             }
+        } else {
+            placeholderImageView.isHidden = false
         }
     }
 }

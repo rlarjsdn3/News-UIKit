@@ -65,7 +65,6 @@ extension TrendingNowTableViewCell: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        print(#function)
         let item = collectionView.dequeueReusableCell(
             withReuseIdentifier: TrendingArticleCollectionViewCell.id,
             for: indexPath
