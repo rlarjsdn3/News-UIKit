@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="Y6W-OH-hqX" customClass="SearchViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bli-g6-0Pe" customClass="ArticleTableView" customModule="News" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" name="NewsBackground"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="FQU-fF-TrZ"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="90R-ym-hle"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="bli-g6-0Pe" secondAttribute="bottom" id="MNp-RJ-9my"/>
+                            <constraint firstItem="bli-g6-0Pe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dnL-ae-WAs"/>
+                            <constraint firstItem="bli-g6-0Pe" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="ph0-cv-BPB"/>
+                            <constraint firstItem="bli-g6-0Pe" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="sI9-el-gQV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchTableView" destination="bli-g6-0Pe" id="Ues-zG-4yT"/>
+                        <segue destination="dXz-AD-gYE" kind="show" identifier="navigateToArticleDetail" id="kBL-AB-HGD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.1679389312977" y="-2.1126760563380285"/>
+        </scene>
+        <!--ArticleDetailViewController-->
+        <scene sceneID="wsx-cX-u7f">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ArticleDetail" referencedIdentifier="ArticleDetailViewController" id="dXz-AD-gYE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YJX-mJ-173"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sqp-Xh-w60" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="795" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="NewsBackground">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

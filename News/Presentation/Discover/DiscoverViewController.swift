@@ -65,6 +65,7 @@ final class DiscoverViewController: CoreViewController {
         }
     }
 
+    // MARK: - refactoring
     private func didTapAllButton() {
         clearAllState(nil)
         fetchArticles(nil)
