@@ -8,9 +8,11 @@
 import UIKit
 
 final class InsightNowViewController: CoreViewController {
-
+    
+    @IBOutlet weak var insightNowTableView: UITableView!
+    
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var navigationLabel: UILabel!
+    @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var searchBar: UIView!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var xmarkButton: CircleButton!
@@ -19,10 +21,17 @@ final class InsightNowViewController: CoreViewController {
     @IBOutlet weak var searchBarTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchBarHeightConstraint: NSLayoutConstraint!
 
+    private let dataTransferService: (any DataTransferService) = DefaultDataTransferService()
     private var searchController: SearchViewController?
+    
+    private var dataSouce: [InsightNowSection] = [] {
+        didSet { insightNowTableView.reloadData() }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchTrendingNowArticles()
     }
     
     override func setupAttributes() {
@@ -34,8 +43,28 @@ final class InsightNowViewController: CoreViewController {
             $0.layer.cornerRadius = 30
             $0.layer.masksToBounds = true
         }
+        
+        insightNowTableView.apply {
+            $0.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 8, right: 0)
+        }
 
         containerView.alpha = 0
+    }
+}
+
+extension InsightNowViewController {
+    
+    func fetchTrendingNowArticles() {
+        let endpoint = APIEndpoints.latest()
+        dataTransferService.request(endpoint) { [weak self] result in
+            switch result {
+            case .success(let value):
+                self?.dataSouce = [.trendingNow(dataSource: value.results), .categoryBar]
+            case .failure(let error):
+                self?.dataSouce = [.categoryBar]
+                print(error)
+            }
+        }
     }
 }
 
@@ -61,7 +90,7 @@ extension InsightNowViewController: UITextFieldDelegate {
             searchBarHeightConstraint.constant = 50
             searchBar.layer.cornerRadius = 25
             xmarkButton.isHidden = false
-            navigationLabel.isHidden = true
+            navigationTitleLabel.isHidden = true
         } else{
             removeSearchController()
             searchBarTopConstraint.constant = 72
@@ -70,7 +99,7 @@ extension InsightNowViewController: UITextFieldDelegate {
             searchBar.layer.cornerRadius = 30
             searchField.text = ""
             xmarkButton.isHidden = true
-            navigationLabel.isHidden = false
+            navigationTitleLabel.isHidden = false
         }
 
         UIView.animate(withDuration: 0.25) {
@@ -106,5 +135,45 @@ extension InsightNowViewController: CircleButtonDelegate {
     ) {
         searchField.endEditing(true)
         toggleSearchMode(false)
+    }
+}
+
+extension InsightNowViewController: UITableViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    }
+}
+
+extension InsightNowViewController: UITableViewDataSource {
+    
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        return dataSouce.count
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        switch dataSouce[indexPath.item] {
+        case let .trendingNow(articles):
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: TrendingNowTableViewCell.id,
+                for: indexPath
+            ) as! TrendingNowTableViewCell
+            cell.dataTransferService = dataTransferService
+            cell.trendingArticles = articles
+            return cell
+            
+        case .categoryBar:
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: DiscoverTableViewCell.id,
+                for: indexPath
+            ) as! DiscoverTableViewCell
+            return cell
+            
+        }
     }
 }

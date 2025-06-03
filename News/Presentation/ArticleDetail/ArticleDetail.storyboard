@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,17 +18,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3BQ-x2-wrx">
-                                <rect key="frame" x="8" y="118" width="377" height="50"/>
+                                <rect key="frame" x="16" y="59" width="361" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRy-Ic-cWU" customClass="CircleButton" customModule="News" customModuleProvider="target">
-                                        <rect key="frame" x="327" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="311" y="0.0" width="50" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="CRy-Ic-cWU" secondAttribute="height" id="heM-7z-P0D"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="ellipsis"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Bu-n0-cQa" customClass="CircleButton" customModule="News" customModuleProvider="target">
-                                        <rect key="frame" x="269" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="253" y="0.0" width="50" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="7Bu-n0-cQa" secondAttribute="height" id="y2u-a9-z0X"/>
@@ -39,7 +42,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9KZ-9k-baT" customClass="CircleButton" customModule="News" customModuleProvider="target">
-                                        <rect key="frame" x="211" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="195" y="0.0" width="50" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9KZ-9k-baT" secondAttribute="height" id="9GS-hB-etO"/>
@@ -49,7 +52,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANM-Sm-Uer" customClass="CircleButton" customModule="News" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="-8" y="0.0" width="50" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ANM-Sm-Uer" secondAttribute="height" id="2D1-wW-ybc"/>
@@ -71,14 +74,13 @@
                                     <constraint firstItem="7Bu-n0-cQa" firstAttribute="leading" secondItem="9KZ-9k-baT" secondAttribute="trailing" constant="8" id="Z6z-Cd-ah3"/>
                                     <constraint firstAttribute="trailing" secondItem="CRy-Ic-cWU" secondAttribute="trailing" id="ZJr-2q-LBg"/>
                                     <constraint firstItem="9KZ-9k-baT" firstAttribute="top" secondItem="3BQ-x2-wrx" secondAttribute="top" id="fZW-SX-3Wt"/>
-                                    <constraint firstItem="CRy-Ic-cWU" firstAttribute="width" secondItem="CRy-Ic-cWU" secondAttribute="height" id="heM-7z-P0D"/>
                                     <constraint firstAttribute="bottom" secondItem="7Bu-n0-cQa" secondAttribute="bottom" id="hv1-s0-0al"/>
                                     <constraint firstItem="CRy-Ic-cWU" firstAttribute="leading" secondItem="7Bu-n0-cQa" secondAttribute="trailing" constant="8" id="mdL-2G-Y82"/>
                                     <constraint firstAttribute="bottom" secondItem="ANM-Sm-Uer" secondAttribute="bottom" id="oES-tv-2m5"/>
                                 </constraints>
                             </view>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtM-XI-F6Y">
-                                <rect key="frame" x="0.0" y="176" width="393" height="676"/>
+                                <rect key="frame" x="0.0" y="117" width="393" height="735"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -90,10 +92,10 @@
                         <color key="backgroundColor" name="NewsBackground"/>
                         <constraints>
                             <constraint firstItem="QtM-XI-F6Y" firstAttribute="top" secondItem="3BQ-x2-wrx" secondAttribute="bottom" constant="8" id="7Z6-tM-yWU"/>
-                            <constraint firstItem="3BQ-x2-wrx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="EEI-yb-zS5"/>
+                            <constraint firstItem="3BQ-x2-wrx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="EEI-yb-zS5"/>
                             <constraint firstItem="3BQ-x2-wrx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="NrF-uI-BK1"/>
                             <constraint firstItem="QtM-XI-F6Y" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QM8-Qs-qT2"/>
-                            <constraint firstItem="3BQ-x2-wrx" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-8" id="RqX-ra-kSK"/>
+                            <constraint firstItem="3BQ-x2-wrx" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="RqX-ra-kSK"/>
                             <constraint firstAttribute="bottom" secondItem="QtM-XI-F6Y" secondAttribute="bottom" id="TyH-Sd-pbR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="3BQ-x2-wrx" secondAttribute="top" id="nGk-HU-7hM"/>
                             <constraint firstItem="QtM-XI-F6Y" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="r0X-53-SgG"/>

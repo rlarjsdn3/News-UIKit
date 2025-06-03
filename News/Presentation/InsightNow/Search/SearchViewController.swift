@@ -18,7 +18,7 @@ final class SearchViewController: CoreViewController {
     private var articles: [NewsArticleResponse] = [] {
         didSet { searchTableView.reloadData() }
     }
-
+    
     ///
     private var nextPage: String?
     ///
@@ -31,7 +31,7 @@ final class SearchViewController: CoreViewController {
     }
 
     private let dataTrasnferService: any DataTransferService = DefaultDataTransferService()
-
+    
     override func prepare(
         for segue: UIStoryboardSegue,
         sender: Any?
@@ -101,7 +101,7 @@ extension SearchViewController: UITableViewDelegate {
     /// 현재 스크롤 위치가 전체 콘텐츠 하단에서 300pt 이내로 도달했는지를 확인하여,
     /// 해당 조건을 만족할 때 다음 페이지 데이터를 요청하도록 합니다.
     ///
-    /// - `nextPage`가 존재해야 하며,
+    /// - `query`와 `nextPage`가 존재해야 하며,
     /// - 중복 요청을 막기 위해 `loadedNextPage`에 없어야 하며,
     /// - 현재 네트워크 요청 중이 아닐 때만 실행 (`isFetching` 사용)
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -153,7 +153,6 @@ extension SearchViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        print(#function)
         let cell = tableView.dequeueReusableCell(
             withIdentifier: NewsArticleTableViewCell.id,
             for: indexPath
