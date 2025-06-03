@@ -58,6 +58,10 @@ final class CategoryBar: UIView, NibLodable {
         allLabel.textColor = .systemGray3
     }
 
+    @IBAction func touchUpOutsideAllButton(_ sender: Any) {
+        allLabel.textColor = .label
+    }
+
     @IBAction func didTapPoliticsButton(_ sender: UIButton) {
         adjustUnderlineView(
             .defaultLow,
@@ -76,6 +80,10 @@ final class CategoryBar: UIView, NibLodable {
 
     @IBAction func touchDownPoliticsButton(_ sender: UIButton) {
         politicsLabel.textColor = .systemGray3
+    }
+
+    @IBAction func touchUpOutsidePoliticsButton(_ sender: Any) {
+        politicsLabel.textColor = .label
     }
 
     @IBAction func didTapTechnologyButton(_ sender: UIButton) {
@@ -99,6 +107,10 @@ final class CategoryBar: UIView, NibLodable {
         technologyLabel.textColor = .systemGray3
     }
 
+    @IBAction func touchUpOutsideTechnologyButton(_ sender: Any) {
+        technologyLabel.textColor = .label
+    }
+
     @IBAction func didTapEducationButton(_ sender: UIButton) {
         adjustUnderlineView(
             .defaultLow,
@@ -117,6 +129,25 @@ final class CategoryBar: UIView, NibLodable {
 
     @IBAction func touchDownEducationButton(_ sender: UIButton) {
         educationLabel.textColor = .systemGray3
+    }
+
+    @IBAction func touchUpOutsideEducationButton(_ sender: Any) {
+        educationLabel.textColor = .label
+    }
+    
+    /// <#Description#>
+    /// - Parameter category: <#category description#>
+    func sendAction(_ category: NewsCategory?) {
+        switch category {
+        case .education:
+            didTapEducationButton(educationButton)
+        case .technology:
+            didTapTechnologyButton(technologyButton)
+        case .politics:
+            didTapPoliticsButton(politicsButton)
+        default: // all
+            didTapAllButton(allButton)
+        }
     }
 
 }

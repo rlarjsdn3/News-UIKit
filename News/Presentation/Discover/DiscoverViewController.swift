@@ -19,9 +19,8 @@ final class DiscoverViewController: CoreViewController {
     ///
     private var previousTappedButton: NewsCategory?
 
-    var isScrollEnabled: Bool = true {
-        didSet { articleTableView.isScrollEnabled = isScrollEnabled }
-    }
+    ///
+    var isPagingEnabled: Bool = true
 
     ///
     private var nextPage: String?
@@ -157,7 +156,8 @@ extension DiscoverViewController: UITableViewDelegate {
     ///
     /// - `nextPage`가 존재해야 하며,
     /// - 중복 요청을 막기 위해 `loadedNextPage`에 없어야 하며,
-    /// - 현재 네트워크 요청 중이 아닐 때만 실행 (`isFetching` 사용)
+    /// - 현재 네트워크 요청 중이 아니어야 하며, (`isFetching` 사용)
+    /// - `isPagingEnabled`가 참(true)이어야 실행
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let inset = scrollView.contentInset
         let contentHeight = scrollView.contentSize.height + inset.top + inset.bottom
@@ -165,7 +165,7 @@ extension DiscoverViewController: UITableViewDelegate {
         let height = scrollView.bounds.height
 
         if contentOffset.y >= contentHeight - height - 300 {
-            if let nextPage = nextPage, !hasLoadedNextPage(nextPage), !isFetching {
+            if let nextPage = nextPage, !hasLoadedNextPage(nextPage), !isFetching, isPagingEnabled {
                 isFetching = true
                 loadedNextPage.append(nextPage)
 

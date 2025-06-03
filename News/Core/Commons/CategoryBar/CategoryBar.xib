@@ -44,6 +44,7 @@
                             <connections>
                                 <action selector="didTapAllButton:" destination="-1" eventType="touchUpInside" id="JG8-oy-xzX"/>
                                 <action selector="touchDownAllButton:" destination="-1" eventType="touchDown" id="sI4-hI-bSo"/>
+                                <action selector="touchUpOutsideAllButton:" destination="-1" eventType="touchUpOutside" id="HgC-XO-jC3"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiC-XS-7uO">
@@ -53,6 +54,7 @@
                             <connections>
                                 <action selector="didTapPoliticsButton:" destination="-1" eventType="touchUpInside" id="cF9-qy-5Ef"/>
                                 <action selector="touchDownPoliticsButton:" destination="-1" eventType="touchDown" id="FaJ-8R-Hvr"/>
+                                <action selector="touchUpOutsidePoliticsButton:" destination="-1" eventType="touchUpOutside" id="gJL-K7-UIN"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4e-1d-Ha5">
@@ -62,6 +64,7 @@
                             <connections>
                                 <action selector="didTapTechnologyButton:" destination="-1" eventType="touchUpInside" id="eHU-rK-mbv"/>
                                 <action selector="touchDownTechnologyButton:" destination="-1" eventType="touchDown" id="hoK-ol-w0n"/>
+                                <action selector="touchUpOutsideTechnologyButton:" destination="-1" eventType="touchUpOutside" id="QpQ-to-PPE"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq9-3c-rYp">
@@ -71,6 +74,7 @@
                             <connections>
                                 <action selector="didTapEducationButton:" destination="-1" eventType="touchUpInside" id="10y-LG-TfF"/>
                                 <action selector="touchDownEducationButton:" destination="-1" eventType="touchDown" id="Evc-MA-r5j"/>
+                                <action selector="touchUpOutsideEducationButton:" destination="-1" eventType="touchUpOutside" id="b6t-ui-Hau"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QN-8t-hed">

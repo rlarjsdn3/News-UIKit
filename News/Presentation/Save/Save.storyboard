@@ -44,7 +44,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" name="SurfaceLight"/>
+                        <color key="backgroundColor" name="NewsBackground"/>
                         <constraints>
                             <constraint firstItem="AKF-q1-jqe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="7sc-r5-oCd"/>
                             <constraint firstAttribute="bottom" secondItem="Grn-7h-CDq" secondAttribute="bottom" id="AKp-6Z-Gnq"/>
@@ -78,9 +78,6 @@
     <resources>
         <namedColor name="NewsBackground">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SurfaceLight">
-            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

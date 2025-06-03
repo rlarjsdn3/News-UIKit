@@ -35,6 +35,8 @@ final class InsightNowViewController: CoreViewController {
         
         fetchTrendingNowArticles()
         registerDidTapTrendingArticleNotification()
+//        dataSouce = [.trendingNow(dataSource: NewsDataResponse.mock.results), .categoryBar]
+#warning("임시 데이터 지우기")
     }
 
     override func prepare(
@@ -55,8 +57,12 @@ final class InsightNowViewController: CoreViewController {
             $0.layer.masksToBounds = true
         }
 
+        insightNowTableView.apply {
+            $0.isPagingEnabled = false
+            $0.contentInset = UIEdgeInsets(top: 90, left: 0, bottom: 8, right: 0)
+        }
+
         containerView.alpha = 0
-        insightNowTableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 8, right: 0)
         xmarkButton.delegate = self
     }
 
@@ -114,6 +120,7 @@ extension InsightNowViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         toggleSearchMode(true)
+        insightNowTableView.scrollRectToVisible(.init(x: 0, y: 0, width: 1, height: 1), animated: true)
     }
     
     /// <#Description#>
@@ -251,7 +258,7 @@ extension InsightNowViewController: UITableViewDataSource {
         case .trendingNow(_):
             return UITableView.automaticDimension
         case .categoryBar:
-            return 1200
+            return 1650
         }
     }
 }

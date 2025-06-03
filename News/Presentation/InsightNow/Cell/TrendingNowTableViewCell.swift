@@ -84,7 +84,7 @@ extension TrendingNowTableViewCell: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: 360, height: 400)
+        return CGSize(width: 360, height: 420)
     }
     
     func collectionView(

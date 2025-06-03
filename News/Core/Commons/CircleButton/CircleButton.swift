@@ -46,6 +46,7 @@ final class CircleButton: UIView, NibLodable {
             $0.layer.cornerRadius = self.frame.width / 2
             $0.layer.masksToBounds = true
         }
+        imageView.tintColor = .label
     }
     
     @IBAction func touchDownButton(_ sender: Any) {
@@ -85,7 +86,7 @@ extension CircleButton {
     /// <#Description#>
     /// - Parameter name: <#name description#>
     func updateImage(_ name: String) {
-        imageView.image = UIImage(named: name)
+        imageView.image = UIImage(named: name)?.withRenderingMode(.alwaysTemplate)
         ?? UIImage(systemName: name)
         ?? nil
     }
