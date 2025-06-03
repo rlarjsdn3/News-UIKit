@@ -25,7 +25,7 @@ struct APIEndpoints {
         category: NewsCategory? = nil,
         nextPage: String? = nil
     ) -> Endpoint<NewsDataResponse> {
-        var queryParameters: [String: Any] = [:]
+        var queryParameters: [String: Any] = ["country": "us", "language": "en"]
         if let query = query {
             queryParameters.updateValue(query, forKey: "q")
         }

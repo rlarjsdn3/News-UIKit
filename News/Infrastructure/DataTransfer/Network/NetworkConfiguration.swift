@@ -23,5 +23,5 @@ struct DefaultNetworkConfiguration: NetworkConfigurable {
 
     var headers: [String : String] = ["X-ACCESS-KEY": "pub_5b56753106094df6b0c4c2c2667f205b"]
 
-    var queryParameters: [String : String] = ["country": "us", "language": "en"]
+    var queryParameters: [String : String] = [:]
 }

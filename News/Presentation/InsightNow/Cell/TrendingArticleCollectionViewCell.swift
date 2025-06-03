@@ -14,16 +14,20 @@ final class TrendingArticleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var publishedAtLabel: UILabel!
-    
+
     private var cancellable: (any NetworkCancellable)?
     var dataTransferService: (any DataTransferService)?
 
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        setupIntialState()
+    }
+
+    private func setupIntialState() {
         cancellable?.cancel()
         articleImageView.image = nil
-        placeholderImageView.isHidden = true
+        placeholderImageView.isHidden = false
     }
 }
 
@@ -52,10 +56,13 @@ extension TrendingArticleCollectionViewCell {
                     self?.articleImageView.image = UIImage(data: data)
                     self?.placeholderImageView.isHidden = true
                 case .failure(let error):
+                    print(error)
+                    self?.articleImageView.isHidden = true
                     self?.placeholderImageView.isHidden = false
                 }
             }
         } else {
+            articleImageView.isHidden = true
             placeholderImageView.isHidden = false
         }
     }

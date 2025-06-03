@@ -33,9 +33,9 @@ final class InsightNowViewController: CoreViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchTrendingNowArticles()
+//        fetchTrendingNowArticles()
         registerDidTapTrendingArticleNotification()
-//        dataSouce = [.trendingNow(dataSource: NewsDataResponse.mock.results), .categoryBar]
+        dataSouce = [.trendingNow(dataSource: NewsDataResponse.mock.results), .categoryBar]
 #warning("임시 데이터 지우기")
     }
 
