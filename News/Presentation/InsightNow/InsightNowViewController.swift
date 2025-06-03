@@ -22,8 +22,10 @@ final class InsightNowViewController: CoreViewController {
     @IBOutlet weak var searchBarHeightConstraint: NSLayoutConstraint!
 
     private let dataTransferService: (any DataTransferService) = DefaultDataTransferService()
+
     private var searchController: SearchViewController?
-    
+    private var discoverController: DiscoverViewController?
+
     private var dataSouce: [InsightNowSection] = [] {
         didSet { insightNowTableView.reloadData() }
     }
@@ -160,6 +162,22 @@ extension InsightNowViewController: UITextFieldDelegate {
             removeChild(searchController)
         }
     }
+
+    ///
+    private func addDiscoverViewController(to cell: DiscoverTableViewCell) {
+        if children.exclude(where: { $0 === discoverController }),
+           let discoverCon = DiscoverViewController.instantiateViewController(from: "Discover") {
+            self.discoverController = discoverCon
+            addChild(discoverCon, to: cell.containerView)
+        }
+    }
+
+    /// <#Description#>
+    private func removeDiscoverController() {
+        if let discoverController = discoverController {
+            removeChild(discoverController)
+        }
+    }
 }
 
 extension InsightNowViewController: CircleButtonDelegate {
@@ -218,8 +236,22 @@ extension InsightNowViewController: UITableViewDataSource {
                 withIdentifier: DiscoverTableViewCell.id,
                 for: indexPath
             ) as! DiscoverTableViewCell
+            UIView.performWithoutAnimation {
+                addDiscoverViewController(to: cell)
+            }
             return cell
-            
+        }
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        switch dataSouce[indexPath.row] {
+        case .trendingNow(_):
+            return UITableView.automaticDimension
+        case .categoryBar:
+            return 1200
         }
     }
 }
