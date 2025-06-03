@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Dd-mF-OaJ">
-                                <rect key="frame" x="16" y="59" width="361" height="50"/>
+                                <rect key="frame" x="16" y="118" width="361" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insight Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyM-2E-dEB">
                                         <rect key="frame" x="0.0" y="0.0" width="152" height="50"/>
@@ -64,7 +64,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GKB-HA-8xC">
-                                <rect key="frame" x="0.0" y="117" width="393" height="735"/>
+                                <rect key="frame" x="0.0" y="176" width="393" height="676"/>
                                 <color key="backgroundColor" name="NewsBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="45" id="4L8-yA-j0k">
@@ -92,10 +92,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-ge-rLF">
-                                                            <rect key="frame" x="289.66666666666669" y="10" width="87.333333333333314" height="25"/>
+                                                            <rect key="frame" x="317" y="10" width="60" height="25"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mg-oq-iGZ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="43.666666666666664" height="25"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="Q0E-OJ-7Un"/>
+                                                                    </constraints>
                                                                     <color key="tintColor" systemColor="labelColor"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain">
@@ -106,7 +109,10 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4b-Hy-pJr">
-                                                                    <rect key="frame" x="43.666666666666629" y="0.0" width="43.666666666666657" height="25"/>
+                                                                    <rect key="frame" x="30" y="0.0" width="30" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="m1Y-U4-YtX"/>
+                                                                    </constraints>
                                                                     <color key="tintColor" systemColor="labelColor"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain">
@@ -294,7 +300,7 @@
                                 <rect key="frame" x="-404" y="-206" width="393" height="735"/>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAG-YZ-hwy">
-                                <rect key="frame" x="16" y="131" width="361" height="60"/>
+                                <rect key="frame" x="16" y="190" width="361" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vzM-Sz-IQx">
                                         <rect key="frame" x="12" y="12" width="337" height="36"/>
@@ -357,11 +363,22 @@
                         <outlet property="searchBarTrailingConstraint" destination="rUB-8Y-cLZ" id="IhZ-jB-hAh"/>
                         <outlet property="searchField" destination="erg-Sr-FOa" id="rzZ-ys-7cf"/>
                         <outlet property="xmarkButton" destination="Qd9-yJ-8GC" id="YdM-s1-xl9"/>
+                        <segue destination="PsE-ai-Tmo" kind="show" identifier="navigateToArticleDetail" id="1R8-fR-zZT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.1679389312977" y="-2.1126760563380285"/>
+        </scene>
+        <!--ArticleDetailViewController-->
+        <scene sceneID="slF-Ss-iaT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ArticleDetail" referencedIdentifier="ArticleDetailViewController" id="PsE-ai-Tmo" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Wa9-Kt-vui"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQa-Lk-dWU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="-2"/>
         </scene>
         <!--DiscoverViewController-->
         <scene sceneID="BXy-Ey-Aim">
@@ -369,7 +386,7 @@
                 <viewControllerPlaceholder storyboardName="Discover" referencedIdentifier="DiscoverViewController" id="z5y-r1-TRk" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48n-nw-HI1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="621" y="194"/>
+            <point key="canvasLocation" x="621" y="234"/>
         </scene>
     </scenes>
     <resources>
@@ -393,7 +410,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -32,29 +32,53 @@ final class InsightNowViewController: CoreViewController {
         super.viewDidLoad()
         
         fetchTrendingNowArticles()
+        registerDidTapTrendingArticleNotification()
     }
-    
-    override func setupAttributes() {
-        xmarkButton.delegate = self
 
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        if let vc = segue.destination as? ArticleDetailViewController {
+            guard let article = sender as? NewsArticleResponse else { return }
+            vc.article = article
+        }
+    }
+
+    override func setupAttributes() {
         searchBar.apply {
             $0.layer.borderWidth = 1
             $0.layer.borderColor = UIColor.newsSeparator.cgColor
             $0.layer.cornerRadius = 30
             $0.layer.masksToBounds = true
         }
-        
-        insightNowTableView.apply {
-            $0.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 8, right: 0)
-        }
 
         containerView.alpha = 0
+        insightNowTableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 8, right: 0)
+        xmarkButton.delegate = self
+    }
+
+    private func registerDidTapTrendingArticleNotification() {
+        NotificationCenter.default.addObserver(
+            forName: .didTapTrendingArticleCell,
+            object: nil,
+            queue: .main,
+            using: handleDidTapTrendingArticleCell(_:)
+        )
+    }
+
+    private func unregisterDidTapTrendingArticleNotification() {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    deinit {
+        unregisterDidTapTrendingArticleNotification()
     }
 }
 
 extension InsightNowViewController {
     
-    func fetchTrendingNowArticles() {
+    private func fetchTrendingNowArticles() {
         let endpoint = APIEndpoints.latest()
         dataTransferService.request(endpoint) { [weak self] result in
             switch result {
@@ -65,6 +89,18 @@ extension InsightNowViewController {
                 print(error)
             }
         }
+    }
+
+    private func handleDidTapTrendingArticleCell(_ notification: Notification) {
+        print("navigateToArticleDetail")
+        guard let indexPath = notification.userInfo?[.indexPath] as? IndexPath else { return }
+        guard case let .trendingNow(dataSource) = dataSouce.first(where: {
+            if case .trendingNow(_) = $0 { return true }
+            return false
+        }) else { return }
+        print("navigateToArticleDetail ------------")
+        let selectedArticle = dataSource[indexPath.row]
+        performSegue(withIdentifier: "navigateToArticleDetail", sender: selectedArticle)
     }
 }
 
@@ -141,6 +177,16 @@ extension InsightNowViewController: CircleButtonDelegate {
 extension InsightNowViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let inset = scrollView.contentInset
+        let contentOffset = scrollView.contentOffset
+
+        let alpha = 1 - (contentOffset.y + inset.top) / 30
+        searchBar.alpha = alpha < 0 ? 0 : alpha
+
+        let rawScale = 1 - (contentOffset.y + inset.top) / 200
+        let scalingFactor = (1 * rawScale) >= 0.925 ? (1 * rawScale) : 0.925
+        let clampedScale = scalingFactor >= 1 ? 1 : scalingFactor
+        searchBar.transform = CGAffineTransform(scaleX: clampedScale, y: clampedScale)
     }
 }
 

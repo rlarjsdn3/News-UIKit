@@ -29,10 +29,7 @@ final class TrendingNowTableViewCell: UITableViewCell {
     }
     
     private func setupAttributes() {
-        collectionView.apply {
-            $0.isDirectionalLockEnabled = true
-            $0.contentInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-        }
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
     }
     
     @IBAction func didTapLeftButton(_ sender: Any) {
@@ -48,7 +45,11 @@ extension TrendingNowTableViewCell: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        
+        NotificationCenter.default.post(
+            name: .didTapTrendingArticleCell,
+            object: nil,
+            userInfo: [.indexPath: indexPath]
+        )
     }
 }
 
