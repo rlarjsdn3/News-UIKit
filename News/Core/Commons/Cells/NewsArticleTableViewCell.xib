@@ -24,7 +24,7 @@
                             <constraint firstAttribute="width" constant="130" id="Uac-YI-c17"/>
                         </constraints>
                     </imageView>
-                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle.angled.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="87H-eW-eig">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle.angled.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="87H-eW-eig">
                         <rect key="frame" x="45" y="45.000000000000014" width="70" height="70.666666666666657"/>
                         <color key="tintColor" systemColor="labelColor"/>
                     </imageView>

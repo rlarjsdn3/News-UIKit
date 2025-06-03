@@ -94,13 +94,11 @@ extension InsightNowViewController {
     }
 
     private func handleDidTapTrendingArticleCell(_ notification: Notification) {
-        print("navigateToArticleDetail")
         guard let indexPath = notification.userInfo?[.indexPath] as? IndexPath else { return }
         guard case let .trendingNow(dataSource) = dataSouce.first(where: {
             if case .trendingNow(_) = $0 { return true }
             return false
         }) else { return }
-        print("navigateToArticleDetail ------------")
         let selectedArticle = dataSource[indexPath.row]
         performSegue(withIdentifier: "navigateToArticleDetail", sender: selectedArticle)
     }
@@ -168,6 +166,8 @@ extension InsightNowViewController: UITextFieldDelegate {
         if children.exclude(where: { $0 === discoverController }),
            let discoverCon = DiscoverViewController.instantiateViewController(from: "Discover") {
             self.discoverController = discoverCon
+            discoverCon.loadViewIfNeeded()
+            discoverCon.articleTableView.isScrollEnabled = false 
             addChild(discoverCon, to: cell.containerView)
         }
     }

@@ -16,13 +16,8 @@ final class TrendingArticleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var publishedAtLabel: UILabel!
     
     private var cancellable: (any NetworkCancellable)?
-    
     var dataTransferService: (any DataTransferService)?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         

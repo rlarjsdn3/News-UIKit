@@ -39,7 +39,7 @@ final class NewsArticleTableViewCell: UITableViewCell {
     private func setupIntialState() {
         cancellable?.cancel()
         articleImageView.image = nil
-        placeholderImageView.isHidden = true
+        placeholderImageView.isHidden = false
     }
 
     private func setupMenu() {

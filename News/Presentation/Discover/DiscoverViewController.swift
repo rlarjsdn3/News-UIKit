@@ -18,7 +18,11 @@ final class DiscoverViewController: CoreViewController {
     }
     ///
     private var previousTappedButton: NewsCategory?
-    
+
+    var isScrollEnabled: Bool = true {
+        didSet { articleTableView.isScrollEnabled = isScrollEnabled }
+    }
+
     ///
     private var nextPage: String?
     ///
@@ -65,26 +69,9 @@ final class DiscoverViewController: CoreViewController {
         }
     }
 
-    #warning("refactoring 하기")
-    private func didTapAllButton() {
-        clearAllState(nil)
-        fetchArticles(nil)
-    }
-
-    private func didTapPoliticsButton() {
-        clearAllState(.politics)
-        fetchArticles(.politics)
-    }
-    
-    private func didTapTechnologyButton() {
-        clearAllState(.technology)
-        fetchArticles(.technology)
-    }
-
-
-    private func didTapEducationButton() {
-        clearAllState(.education)
-        fetchArticles(.education)
+    private func didTapCategoryButton(_ category: NewsCategory?) {
+        clearAllState(category)
+        fetchArticles(category)
     }
 
     private func clearAllState(_ category: NewsCategory?) {
@@ -139,13 +126,13 @@ extension DiscoverViewController: CategoryBarDeletgate {
     ) {
         switch category {
         case .politics:
-            didTapPoliticsButton()
+            didTapCategoryButton(.politics)
         case .technology:
-            didTapTechnologyButton()
+            didTapCategoryButton(.technology)
         case .education:
-            didTapEducationButton()
+            didTapCategoryButton(.education)
         default: // all
-            didTapAllButton()
+            didTapCategoryButton(nil)
         }
     }
 }
