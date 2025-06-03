@@ -42,6 +42,7 @@ final class InsightNowViewController: CoreViewController {
 extension InsightNowViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchField.endEditing(true)
         searchController?.search(textField.text ?? "")
         return true
     }
@@ -49,36 +50,20 @@ extension InsightNowViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         toggleSearchMode(true)
     }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-//        toggleSearchMode(false)
-    }
-
+    
+    /// <#Description#>
+    /// - Parameter searchMode: <#searchMode description#>
     private func toggleSearchMode(_ searchMode: Bool) {
         if searchMode {
-            #warning("코드 리팩토링 - 왜 두 번 추가되는 걸까? - 뷰가 다시 보이면 beginEditing이 호출이 다시 호출되나?")
-            if searchController ==  nil {
-                let storyboard = UIStoryboard(name: "Search", bundle: nil)
-                let searchVC = storyboard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
-                searchController = searchVC
-                if let searchController = searchController {
-                    addChild(searchController, to: containerView)
-                }
-            }
+            addSearchController()
             searchBarTopConstraint.constant = 0
             searchBarTrailingConstraint.constant = 72
             searchBarHeightConstraint.constant = 50
             searchBar.layer.cornerRadius = 25
             xmarkButton.isHidden = false
             navigationLabel.isHidden = true
-
-            UIView.animate(withDuration: 0.25) {
-                self.containerView.alpha = 1
-            }
         } else{
-            if let searchController = searchController {
-                removeChild(searchController)
-            }
+            removeSearchController()
             searchBarTopConstraint.constant = 72
             searchBarTrailingConstraint.constant = 8
             searchBarHeightConstraint.constant = 60
@@ -86,14 +71,28 @@ extension InsightNowViewController: UITextFieldDelegate {
             searchField.text = ""
             xmarkButton.isHidden = true
             navigationLabel.isHidden = false
-
-            UIView.animate(withDuration: 0.25) {
-                self.containerView.alpha = 0
-            }
         }
 
         UIView.animate(withDuration: 0.25) {
+            self.containerView.alpha = searchMode ? 1 : 0
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    /// <#Description#>
+    private func addSearchController() {
+        //
+        if children.exclude(where: { $0 === searchController }),
+           let searchCon = SearchViewController.instantiateViewController(from: "Search") {
+            self.searchController = searchCon
+            addChild(searchCon, to: containerView)
+        }
+    }
+    
+    /// <#Description#>
+    private func removeSearchController() {
+        if let searchController = searchController {
+            removeChild(searchController)
         }
     }
 }

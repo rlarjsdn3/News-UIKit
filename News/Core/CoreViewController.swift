@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoreViewController: UIViewController {
+class CoreViewController: UIViewController, StoryboardInstantiable {
 
     override func viewDidLoad() {
         super.viewDidLoad()

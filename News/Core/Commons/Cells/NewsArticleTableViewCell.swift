@@ -109,7 +109,7 @@ extension NewsArticleTableViewCell {
                     if retryCount > 0 {
                         self?.prepareThumbnail(from: url, retryCount: retryCount - 1)
                     } else {
-                        print(error)
+                        self?.placeholderImageView.isHidden = false
                     }
                 }
             }

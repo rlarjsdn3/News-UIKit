@@ -32,12 +32,6 @@ final class SearchViewController: CoreViewController {
 
     private let dataTrasnferService: any DataTransferService = DefaultDataTransferService()
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        searchTableView.reloadData()
-    }
-
     override func prepare(
         for segue: UIStoryboardSegue,
         sender: Any?
@@ -47,9 +41,11 @@ final class SearchViewController: CoreViewController {
             vc.article = articles[indexPath.row]
         }
     }
-
+    
+    /// <#Description#>
+    /// - Parameter query: <#query description#>
     func search(_ query: String) {
-        if previousQuery != query {
+        if previousQuery != query, !query.isEmpty {
             articles.removeAll()
             fetchArticles(query)
             previousQuery = query
@@ -125,7 +121,7 @@ extension SearchViewController: UITableViewDelegate {
 
                 fetchArticles(
                     query,
-                    nextPage: nextPage,
+                    nextPage: nextPage
                 ) {
                     self.isFetching = false
                 }
