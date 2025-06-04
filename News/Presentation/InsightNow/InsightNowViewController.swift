@@ -214,6 +214,18 @@ extension InsightNowViewController: DiscoverViewControllerDelegate {
         _ categoryBar: CategoryBar,
         didSelect category: NewsCategory?
     ) {
+        // 카테고리 버튼이 클릭되면 첫 번째 셀로 스크롤하기
+        let inset = insightNowTableView.contentInset
+        let indexPath = IndexPath(row: 1, section: 0)
+        if let cell = insightNowTableView.cellForRow(at: indexPath) {
+            let y = cell.frame.minY + inset.top + 28
+            insightNowTableView.scrollRectToVisible(
+                CGRect(x: 0, y: y, width: 1, height: 1),
+                animated: false
+            )
+            // 🟡 현재 셀 간 간격을 고정값(28)으로 설정하고 있으나,
+            // 실제 레이아웃에 따라 동적으로 계산하도록 개선이 필요함
+        }
         stickyCategoryBar.setSelection(category)
     }
 }
