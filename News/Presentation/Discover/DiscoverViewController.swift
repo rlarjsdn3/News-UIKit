@@ -28,13 +28,12 @@ final class DiscoverViewController: CoreViewController {
     private var isFetching: Bool = false
     ///
     private var loadedNextPage: [String] = []
-    ///
-    private func hasLoadedNextPage(_ nextPage: String) -> Bool {
-        loadedNextPage.firstIndex(of: nextPage) != nil
-    }
 
     private let dataTrasnferService: any DataTransferService = DefaultDataTransferService()
-    
+
+    ///
+    weak var delegate: (any DiscoverViewControllerDelegate)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,7 +41,7 @@ final class DiscoverViewController: CoreViewController {
         // 최초 한번 강제로 기사 로드하고,
         fetchArticles(force: true)
         // All 버튼이 선택된 상태로 시작
-        categoryBar.allButton.sendActions(for: .touchUpInside)
+        categoryBar.sendAction(nil)
     }
 
     override func prepare(
@@ -133,6 +132,8 @@ extension DiscoverViewController: CategoryBarDeletgate {
         default: // all
             didTapCategoryButton(nil)
         }
+
+        delegate?.discover(categeryBar, didSelect: category)
     }
 }
 
@@ -180,6 +181,11 @@ extension DiscoverViewController: UITableViewDelegate {
         }
     }
 
+    ///
+    private func hasLoadedNextPage(_ nextPage: String) -> Bool {
+        loadedNextPage.firstIndex(of: nextPage) != nil
+    }
+
     func tableView(
         _ tableView: UITableView,
         willDisplay cell: UITableViewCell,
@@ -218,6 +224,6 @@ extension DiscoverViewController: UITableViewDataSource {
         _ tableView: UITableView,
         estimatedHeightForRowAt indexPath: IndexPath
     ) -> CGFloat {
-        return 160.0
+        return 160
     }
 }

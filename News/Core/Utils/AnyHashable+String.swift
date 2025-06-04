@@ -10,4 +10,8 @@ import Foundation
 extension AnyHashable {
     /// 
     static var indexPath = "indexPath"
+    ///
+    static var from = "from"
+    ///
+    static var category = "category"
 }

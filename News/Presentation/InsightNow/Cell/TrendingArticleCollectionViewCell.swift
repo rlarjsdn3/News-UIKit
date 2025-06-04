@@ -53,10 +53,14 @@ extension TrendingArticleCollectionViewCell {
             cancellable = dataTransferService?.request(endpoint) { [weak self] result in
                 switch result {
                 case .success(let data):
-                    self?.articleImageView.image = UIImage(data: data)
-                    self?.placeholderImageView.isHidden = true
+                    if let image = UIImage(data: data) {
+                        self?.articleImageView.image = image
+                        self?.placeholderImageView.isHidden = true
+                    } else {
+                        self?.articleImageView.isHidden = true
+                        self?.placeholderImageView.isHidden = false
+                    }
                 case .failure(let error):
-                    print(error)
                     self?.articleImageView.isHidden = true
                     self?.placeholderImageView.isHidden = false
                 }

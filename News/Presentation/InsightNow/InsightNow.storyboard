@@ -343,6 +343,13 @@
                                     <constraint firstItem="vzM-Sz-IQx" firstAttribute="top" secondItem="tAG-YZ-hwy" secondAttribute="top" constant="12" id="weP-LP-Ofj"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yb-St-R0Q" customClass="CategoryBar" customModule="News" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="168" width="393" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="I3q-wv-6nb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="NewsBackground"/>
@@ -352,11 +359,14 @@
                             <constraint firstItem="GKB-HA-8xC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="A06-VH-IXO"/>
                             <constraint firstAttribute="bottom" secondItem="GKB-HA-8xC" secondAttribute="bottom" id="Kkz-Tf-Pl0"/>
                             <constraint firstItem="xO5-Hx-IM5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="N8f-G1-9aD"/>
+                            <constraint firstItem="6yb-St-R0Q" firstAttribute="top" secondItem="7Dd-mF-OaJ" secondAttribute="bottom" id="SRV-4e-gdR"/>
+                            <constraint firstItem="6yb-St-R0Q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Vcj-Vl-thT"/>
                             <constraint firstItem="7Dd-mF-OaJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="X9c-xE-MCc"/>
                             <constraint firstItem="xO5-Hx-IM5" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="aP7-pY-P6b"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7Dd-mF-OaJ" secondAttribute="trailing" constant="16" id="atO-EY-Ip0"/>
                             <constraint firstAttribute="bottom" secondItem="xO5-Hx-IM5" secondAttribute="bottom" id="boH-Wj-uLB"/>
                             <constraint firstItem="7Dd-mF-OaJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="dW0-dg-iog"/>
+                            <constraint firstItem="6yb-St-R0Q" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="kXZ-G2-uha"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tAG-YZ-hwy" secondAttribute="trailing" constant="16" id="rUB-8Y-cLZ"/>
                             <constraint firstItem="GKB-HA-8xC" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="tIW-Y5-Byn"/>
                             <constraint firstItem="tAG-YZ-hwy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="72" id="tZZ-ca-JRz"/>
@@ -373,6 +383,7 @@
                         <outlet property="searchBarTopConstraint" destination="tZZ-ca-JRz" id="k2m-NZ-DmU"/>
                         <outlet property="searchBarTrailingConstraint" destination="rUB-8Y-cLZ" id="IhZ-jB-hAh"/>
                         <outlet property="searchField" destination="erg-Sr-FOa" id="rzZ-ys-7cf"/>
+                        <outlet property="stickyCategoryBar" destination="6yb-St-R0Q" id="KEw-DG-QAB"/>
                         <outlet property="xmarkButton" destination="Qd9-yJ-8GC" id="YdM-s1-xl9"/>
                         <segue destination="PsE-ai-Tmo" kind="show" identifier="navigateToArticleDetail" id="1R8-fR-zZT"/>
                     </connections>
@@ -418,7 +429,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -24,7 +24,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" name="SurfaceLight"/>
+                        <color key="backgroundColor" name="NewsBackground"/>
                         <constraints>
                             <constraint firstItem="qm8-aW-7It" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="920-SA-t0f"/>
                             <constraint firstItem="qm8-aW-7It" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="pTa-QP-Pai"/>
@@ -37,8 +37,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="SurfaceLight">
-            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="NewsBackground">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

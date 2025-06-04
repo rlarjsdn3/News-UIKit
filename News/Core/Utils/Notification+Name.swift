@@ -10,4 +10,6 @@ import Foundation
 extension Notification.Name {
     ///
     static var didTapTrendingArticleCell = Notification.Name("didTapTrendingArticleCell")
+    ///
+    static var didTapCategoryButton = Notification.Name("didTapCategoryButton")
 }

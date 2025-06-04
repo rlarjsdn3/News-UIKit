@@ -31,7 +31,14 @@ final class CategoryBar: UIView, NibLodable {
     @IBOutlet weak var educationCenterXConstraint: NSLayoutConstraint!
     @IBOutlet weak var educationEqualWidthConstraint: NSLayoutConstraint!
 
+    ///
     weak var delegate: (any CategoryBarDeletgate)?
+
+    ///
+    private(set) var selectedCategory: NewsCategory?
+
+    ///
+    private var executeDelegate: Bool = true
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -51,7 +58,8 @@ final class CategoryBar: UIView, NibLodable {
             .newsSecondaryLabel,
             .newsSecondaryLabel
         )
-        delegate?.categeryBar(self, didSelect: nil)
+        selectedCategory = nil
+        if executeDelegate { delegate?.categeryBar(self, didSelect: nil) }
     }
 
     @IBAction func touchDownAllButton(_ sender: UIButton) {
@@ -59,7 +67,7 @@ final class CategoryBar: UIView, NibLodable {
     }
 
     @IBAction func touchUpOutsideAllButton(_ sender: Any) {
-        allLabel.textColor = .label
+        allLabel.textColor = (selectedCategory == nil) ? .label : .newsSecondaryLabel
     }
 
     @IBAction func didTapPoliticsButton(_ sender: UIButton) {
@@ -75,7 +83,8 @@ final class CategoryBar: UIView, NibLodable {
             .newsSecondaryLabel,
             .newsSecondaryLabel
         )
-        delegate?.categeryBar(self, didSelect: .politics)
+        selectedCategory = .politics
+        if executeDelegate { delegate?.categeryBar(self, didSelect: .politics) }
     }
 
     @IBAction func touchDownPoliticsButton(_ sender: UIButton) {
@@ -83,7 +92,7 @@ final class CategoryBar: UIView, NibLodable {
     }
 
     @IBAction func touchUpOutsidePoliticsButton(_ sender: Any) {
-        politicsLabel.textColor = .label
+        politicsLabel.textColor = (selectedCategory == .politics) ? .label : .newsSecondaryLabel
     }
 
     @IBAction func didTapTechnologyButton(_ sender: UIButton) {
@@ -99,7 +108,8 @@ final class CategoryBar: UIView, NibLodable {
             .label,
             .newsSecondaryLabel
         )
-        delegate?.categeryBar(self, didSelect: .technology)
+        selectedCategory = .technology
+        if executeDelegate { delegate?.categeryBar(self, didSelect: .technology) }
     }
 
 
@@ -108,7 +118,7 @@ final class CategoryBar: UIView, NibLodable {
     }
 
     @IBAction func touchUpOutsideTechnologyButton(_ sender: Any) {
-        technologyLabel.textColor = .label
+        technologyLabel.textColor = (selectedCategory == .technology) ? .label : .newsSecondaryLabel
     }
 
     @IBAction func didTapEducationButton(_ sender: UIButton) {
@@ -124,7 +134,8 @@ final class CategoryBar: UIView, NibLodable {
             .newsSecondaryLabel,
             .label
         )
-        delegate?.categeryBar(self, didSelect: .education)
+        selectedCategory = .education
+        if executeDelegate { delegate?.categeryBar(self, didSelect: .education) }
     }
 
     @IBAction func touchDownEducationButton(_ sender: UIButton) {
@@ -132,7 +143,7 @@ final class CategoryBar: UIView, NibLodable {
     }
 
     @IBAction func touchUpOutsideEducationButton(_ sender: Any) {
-        educationLabel.textColor = .label
+        educationLabel.textColor = (selectedCategory == .education) ? .label : .newsSecondaryLabel
     }
     
     /// <#Description#>
@@ -150,6 +161,20 @@ final class CategoryBar: UIView, NibLodable {
         }
     }
 
+    func setSelection(_ category: NewsCategory?) {
+        executeDelegate = false
+        switch category {
+        case .education:
+            didTapEducationButton(educationButton)
+        case .technology:
+            didTapTechnologyButton(technologyButton)
+        case .politics:
+            didTapPoliticsButton(politicsButton)
+        default: // all
+            didTapAllButton(allButton)
+        }
+        executeDelegate = true
+    }
 }
 
 extension CategoryBar {

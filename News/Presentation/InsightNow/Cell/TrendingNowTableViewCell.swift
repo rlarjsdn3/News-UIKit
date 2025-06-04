@@ -33,9 +33,11 @@ final class TrendingNowTableViewCell: UITableViewCell {
     }
     
     @IBAction func didTapLeftButton(_ sender: Any) {
+        print(#function)
     }
     
     @IBAction func didTapRightButton(_ sender: Any) {
+        print(#function)
     }
 }
 

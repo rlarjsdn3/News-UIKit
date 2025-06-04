@@ -11,6 +11,7 @@ final class InsightNowViewController: CoreViewController {
     
     @IBOutlet weak var insightNowTableView: UITableView!
     
+    @IBOutlet weak var stickyCategoryBar: CategoryBar!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var searchBar: UIView!
@@ -32,11 +33,11 @@ final class InsightNowViewController: CoreViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        fetchTrendingNowArticles()
+
+        fetchTrendingNowArticles()
         registerDidTapTrendingArticleNotification()
-        dataSouce = [.trendingNow(dataSource: NewsDataResponse.mock.results), .categoryBar]
-#warning("임시 데이터 지우기")
+        // 진짜 '카테고리 바'와 상태를 동일하게 맞추기
+        stickyCategoryBar.sendAction(nil)
     }
 
     override func prepare(
@@ -63,6 +64,8 @@ final class InsightNowViewController: CoreViewController {
         }
 
         containerView.alpha = 0
+        stickyCategoryBar.isHidden = true
+        stickyCategoryBar.delegate = self
         xmarkButton.delegate = self
     }
 
@@ -75,12 +78,12 @@ final class InsightNowViewController: CoreViewController {
         )
     }
 
-    private func unregisterDidTapTrendingArticleNotification() {
+    private func unregisterNotificationOberverIfNeeded() {
         NotificationCenter.default.removeObserver(self)
     }
 
     deinit {
-        unregisterDidTapTrendingArticleNotification()
+        unregisterNotificationOberverIfNeeded()
     }
 }
 
@@ -174,7 +177,8 @@ extension InsightNowViewController: UITextFieldDelegate {
            let discoverCon = DiscoverViewController.instantiateViewController(from: "Discover") {
             self.discoverController = discoverCon
             discoverCon.loadViewIfNeeded()
-            discoverCon.articleTableView.isScrollEnabled = false 
+            discoverCon.delegate = self
+            discoverCon.articleTableView.isScrollEnabled = false
             addChild(discoverCon, to: cell.containerView)
         }
     }
@@ -199,19 +203,49 @@ extension InsightNowViewController: CircleButtonDelegate {
     }
 }
 
+extension InsightNowViewController: CategoryBarDeletgate {
+
+    func categeryBar(
+        _ categeryBar: CategoryBar,
+        didSelect category: NewsCategory?
+    ) {
+        discoverController?.categoryBar.sendAction(category)
+    }
+}
+
+extension InsightNowViewController: DiscoverViewControllerDelegate {
+
+    func discover(
+        _ categoryBar: CategoryBar,
+        didSelect category: NewsCategory?
+    ) {
+        stickyCategoryBar.setSelection(category)
+    }
+}
+
 extension InsightNowViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let inset = scrollView.contentInset
-        let contentOffset = scrollView.contentOffset
+        let contentOffsetY = scrollView.contentOffset.y + inset.top
 
-        let alpha = 1 - (contentOffset.y + inset.top) / 30
+        // 검색 바 투명도 조절
+        let alpha = 1 - contentOffsetY / 30
         searchBar.alpha = alpha < 0 ? 0 : alpha
 
-        let rawScale = 1 - (contentOffset.y + inset.top) / 200
+        // 검색 바 스케일 조절
+        let rawScale = 1 - contentOffsetY / 200
         let scalingFactor = (1 * rawScale) >= 0.925 ? (1 * rawScale) : 0.925
         let clampedScale = scalingFactor >= 1 ? 1 : scalingFactor
         searchBar.transform = CGAffineTransform(scaleX: clampedScale, y: clampedScale)
+        
+        // Sticky 카테고리 바
+        let indexPath = IndexPath(row: 1, section: 0)
+        if let cell = insightNowTableView.cellForRow(at: indexPath) {
+            let shouldStikcy =  contentOffsetY > cell.frame.minY + inset.top + 28
+            print(contentOffsetY + 28, cell.frame.minY)
+            stickyCategoryBar.isHidden = !shouldStikcy
+        }
     }
 }
 
@@ -258,7 +292,9 @@ extension InsightNowViewController: UITableViewDataSource {
         case .trendingNow(_):
             return UITableView.automaticDimension
         case .categoryBar:
-            return 1650
+            return 1700
+            // 🟡 셀 내부의 tableView 콘텐츠 크기에 맞게 동적으로 높이를 계산해야 하지만,
+            // 현재는 고정된 높이를 임시로 반환하고 있음
         }
     }
 }
