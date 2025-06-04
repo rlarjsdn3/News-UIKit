@@ -19,9 +19,9 @@ protocol NetworkConfigurable {
 
 struct DefaultNetworkConfiguration: NetworkConfigurable {
 
-    var baseUrl: String = "https://newsdata.io/api/1"
+    let baseUrl: String = "https://newsdata.io/api/1"
 
-    var headers: [String : String] = ["X-ACCESS-KEY": "pub_5b56753106094df6b0c4c2c2667f205b"]
+    let headers: [String : String] = ["X-ACCESS-KEY": "pub_5b56753106094df6b0c4c2c2667f205b"]
 
-    var queryParameters: [String : String] = [:]
+    let queryParameters: [String : String] = [:]
 }

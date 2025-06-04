@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// 뉴스 기사 정보를 표시하는 셀입니다.
+/// 썸네일 이미지, 카테고리, 내용, 작성자, 작성일 등의 정보를 포함합니다.
 final class NewsArticleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var placeholderImageView: UIImageView!
@@ -83,8 +85,10 @@ final class NewsArticleTableViewCell: UITableViewCell {
 
 extension NewsArticleTableViewCell {
 
-    /// <#Description#>
-    /// - Parameter article: <#article description#>
+    /// 주어진 뉴스 기사와 카테고리 정보를 바탕으로 셀의 UI를 구성합니다.
+    /// - Parameters:
+    ///   - article: 표시할 뉴스 기사 객체
+    ///   - category: 선택된 카테고리. nil일 경우 기사 내의 고유 카테고리를 사용합니다.
     func prepare(
         _ article: NewsArticleResponse,
         with category: NewsCategory?
@@ -94,7 +98,6 @@ extension NewsArticleTableViewCell {
         contentLabel.text = article.refinedDescription
         authorLabel.text = article.refinedAuthor
         publishedAtLabel.text = article.formattedPublishedAt
-
     }
 
     private func prepareThumbnail(from url: URL?) {

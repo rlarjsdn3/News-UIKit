@@ -25,11 +25,7 @@ protocol NetworkSessionManager {
 
 final class DefaultNetworkSessionManager: NetworkSessionManager {
 
-    private let session: URLSession = {
-        let session = URLSession.shared
-        session.configuration.waitsForConnectivity = true
-        return session
-    }()
+    private let session = URLSession.shared
 
     func dataTask(
         from request: URLRequest,

@@ -11,7 +11,10 @@ final class ArticleTableView: UITableView {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setupAttributes()
+    }
 
+    private func setupAttributes() {
         self.apply {
             $0.register(
                 UINib(nibName: "NewsArticleTableViewCell", bundle: nil),

@@ -8,10 +8,12 @@
 import Foundation
 
 extension AnyHashable {
-    /// 
+    /// Notification userInfo에 사용되는 indexPath 키
     static var indexPath = "indexPath"
-    ///
+    
+    /// Notification userInfo에 사용되는 from 키
     static var from = "from"
-    ///
+    
+    /// Notification userInfo에 사용되는 category 키
     static var category = "category"
 }

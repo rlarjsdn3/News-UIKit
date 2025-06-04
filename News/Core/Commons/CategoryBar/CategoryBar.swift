@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// 뉴스 카테고리를 선택할 수 있는 버튼 및 라벨을 포함한 사용자 정의 카테고리 바 뷰입니다.
+/// 버튼을 선택하면 델리게이트를 통해 선택된 카테고리를 외부로 전달합니다.
 final class CategoryBar: UIView, NibLodable {
 
     @IBOutlet weak var allButton: UIButton!
@@ -31,13 +33,13 @@ final class CategoryBar: UIView, NibLodable {
     @IBOutlet weak var educationCenterXConstraint: NSLayoutConstraint!
     @IBOutlet weak var educationEqualWidthConstraint: NSLayoutConstraint!
 
-    ///
+    /// 카테고리 선택 이벤트를 전달할 델리게이트입니다.
     weak var delegate: (any CategoryBarDeletgate)?
 
-    ///
+    /// 현재 선택된 카테고리입니다.
     private(set) var selectedCategory: NewsCategory?
 
-    ///
+    /// 델리게이트 호출 여부를 제어하는 플래그입니다.
     private var executeDelegate: Bool = true
 
     required init?(coder: NSCoder) {
@@ -146,8 +148,9 @@ final class CategoryBar: UIView, NibLodable {
         educationLabel.textColor = (selectedCategory == .education) ? .label : .newsSecondaryLabel
     }
     
-    /// <#Description#>
-    /// - Parameter category: <#category description#>
+    /// 주어진 카테고리에 해당하는 버튼을 내부적으로 터치한 것처럼 처리하고,
+    /// 델리게이트를 통해 선택 이벤트를 외부로 전달합니다.
+    /// - Parameter category: 선택할 뉴스 카테고리. `nil`일 경우 '전체'로 간주됩니다.
     func sendAction(_ category: NewsCategory?) {
         switch category {
         case .education:
@@ -160,7 +163,10 @@ final class CategoryBar: UIView, NibLodable {
             didTapAllButton(allButton)
         }
     }
-
+    
+    /// 주어진 카테고리에 해당하는 버튼을 선택 상태로 설정하지만,
+    /// 델리게이트 호출은 생략하여 외부에 알리지 않습니다.
+    /// - Parameter category: 설정할 뉴스 카테고리. `nil`일 경우 '전체'로 간주됩니다.
     func setSelection(_ category: NewsCategory?) {
         executeDelegate = false
         switch category {
@@ -208,7 +214,7 @@ extension CategoryBar {
         _ color3: UIColor,
         _ color4: UIColor
     ) {
-        UIView.animate(withDuration: 0.24) {
+        UIView.animate(withDuration: 0.25) {
             self.allLabel.textColor = color1
             self.politicsLabel.textColor = color2
             self.technologyLabel.textColor = color3

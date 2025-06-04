@@ -195,7 +195,7 @@ extension InsightNowViewController: CircleButtonDelegate {
 
     func circleButton(
         _ button: CircleButton,
-        didTappedButton imageName: String,
+        didSelect imageName: String,
         for tag: Int
     ) {
         searchField.endEditing(true)

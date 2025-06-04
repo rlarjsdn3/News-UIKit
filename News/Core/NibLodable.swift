@@ -8,7 +8,7 @@
 import UIKit
 
 /// Nib 파일로부터 뷰를 로드할 수 있도록 정의한 프로토콜입니다.
-/// - Note: 보통 커스텀 UIView를 xib로 구성할 때 사용합니다.
+/// 보통 커스텀 UIView를 xib로 구성할 때 사용합니다.
 protocol NibLodable {
     
     /// 연결된 Nib 파일의 이름입니다.
