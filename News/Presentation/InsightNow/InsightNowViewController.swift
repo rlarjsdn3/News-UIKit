@@ -53,7 +53,7 @@ final class InsightNowViewController: CoreViewController {
     override func setupAttributes() {
         searchBar.apply {
             $0.layer.borderWidth = 1
-            $0.layer.borderColor = UIColor.newsSeparator.cgColor
+            $0.layer.borderColor = UIColor.newsSecondaryLabel.cgColor
             $0.layer.cornerRadius = 30
             $0.layer.masksToBounds = true
         }

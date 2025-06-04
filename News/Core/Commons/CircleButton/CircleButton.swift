@@ -43,7 +43,7 @@ final class CircleButton: UIView, NibLodable {
     private func setupAttributes() {
         button.apply {
             $0.layer.borderWidth = 1.0
-            $0.layer.borderColor = UIColor.newsSeparator.cgColor
+            $0.layer.borderColor = UIColor.newsSecondaryLabel.cgColor
             $0.layer.cornerRadius = self.frame.width / 2
             $0.layer.masksToBounds = true
         }
