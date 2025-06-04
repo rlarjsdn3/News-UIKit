@@ -99,7 +99,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="Q0E-OJ-7Un"/>
                                                                     </constraints>
-                                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                                    <color key="tintColor" name="NewsSecondaryLabel"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain">
                                                                         <imageReference key="image" image="arrow.left" catalog="system" symbolScale="medium"/>
@@ -356,6 +356,7 @@
                         <constraints>
                             <constraint firstItem="GKB-HA-8xC" firstAttribute="top" secondItem="7Dd-mF-OaJ" secondAttribute="bottom" constant="8" id="7Fl-gv-hvM"/>
                             <constraint firstItem="xO5-Hx-IM5" firstAttribute="top" secondItem="7Dd-mF-OaJ" secondAttribute="bottom" constant="8" id="8Dl-04-LDJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tAG-YZ-hwy" secondAttribute="trailing" constant="16" id="8iU-Tg-Yih"/>
                             <constraint firstItem="GKB-HA-8xC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="A06-VH-IXO"/>
                             <constraint firstAttribute="bottom" secondItem="GKB-HA-8xC" secondAttribute="bottom" id="Kkz-Tf-Pl0"/>
                             <constraint firstItem="xO5-Hx-IM5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="N8f-G1-9aD"/>
@@ -367,7 +368,6 @@
                             <constraint firstAttribute="bottom" secondItem="xO5-Hx-IM5" secondAttribute="bottom" id="boH-Wj-uLB"/>
                             <constraint firstItem="7Dd-mF-OaJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="dW0-dg-iog"/>
                             <constraint firstItem="6yb-St-R0Q" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="kXZ-G2-uha"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tAG-YZ-hwy" secondAttribute="trailing" constant="16" id="rUB-8Y-cLZ"/>
                             <constraint firstItem="GKB-HA-8xC" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="tIW-Y5-Byn"/>
                             <constraint firstItem="tAG-YZ-hwy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="72" id="tZZ-ca-JRz"/>
                             <constraint firstItem="tAG-YZ-hwy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="uYR-RL-NFS"/>
@@ -381,7 +381,6 @@
                         <outlet property="searchBar" destination="tAG-YZ-hwy" id="98K-gc-0CK"/>
                         <outlet property="searchBarHeightConstraint" destination="Lw1-hw-9UM" id="Pzo-rU-z4h"/>
                         <outlet property="searchBarTopConstraint" destination="tZZ-ca-JRz" id="k2m-NZ-DmU"/>
-                        <outlet property="searchBarTrailingConstraint" destination="rUB-8Y-cLZ" id="IhZ-jB-hAh"/>
                         <outlet property="searchField" destination="erg-Sr-FOa" id="rzZ-ys-7cf"/>
                         <outlet property="stickyCategoryBar" destination="6yb-St-R0Q" id="KEw-DG-QAB"/>
                         <outlet property="xmarkButton" destination="Qd9-yJ-8GC" id="YdM-s1-xl9"/>

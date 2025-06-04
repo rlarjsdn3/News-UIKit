@@ -243,7 +243,6 @@ extension InsightNowViewController: UITableViewDelegate {
         let indexPath = IndexPath(row: 1, section: 0)
         if let cell = insightNowTableView.cellForRow(at: indexPath) {
             let shouldStikcy =  contentOffsetY > cell.frame.minY + inset.top + 28
-            print(contentOffsetY + 28, cell.frame.minY)
             stickyCategoryBar.isHidden = !shouldStikcy
         }
     }

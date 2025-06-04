@@ -111,6 +111,8 @@ extension NewsArticleTableViewCell {
                         self?.placeholderImageView.isHidden = false
                     }
                 case .failure(let error):
+                    print("thumbnail image download error: \(error)")
+                    self?.articleImageView.isHidden = true
                     self?.placeholderImageView.isHidden = false
                 }
             }
