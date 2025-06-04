@@ -43,9 +43,9 @@ struct APIEndpoints {
         )
     }
     
-    /// <#Description#>
-    /// - Parameter url: <#url description#>
-    /// - Returns: <#description#>
+    /// 주어진 이미지 URL 문자열로부터 이미지 데이터를 요청할 수 있는 Endpoint를 생성합니다.
+    /// - Parameter url: 이미지 리소스의 절대 URL 문자열
+    /// - Returns: 이미지 데이터를 반환하는 Endpoint 인스턴스
     static func image(
         _ url: String
     ) -> Endpoint<Data> {
@@ -54,10 +54,11 @@ struct APIEndpoints {
             responseDecoder: RawDataResponseDecoder()
         )
     }
-    
-    /// <#Description#>
-    /// - Parameter url: <#url description#>
-    /// - Returns: <#description#>
+
+    /// 주어진 URL 객체로부터 이미지 데이터를 요청할 수 있는 Endpoint를 생성합니다.
+    /// 내부적으로 URL을 문자열로 변환하여 처리합니다.
+    /// - Parameter url: 이미지 리소스의 URL 객체
+    /// - Returns: 이미지 데이터를 반환하는 Endpoint 인스턴스
     static func image(
         _ url: URL
     ) -> Endpoint<Data> {

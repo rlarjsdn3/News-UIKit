@@ -11,24 +11,22 @@ final class SearchViewController: CoreViewController {
 
     @IBOutlet weak var searchTableView: ArticleTableView!
 
-    ///
+    /// 이전 검색 쿼리. 중복 검색을 방지하기 위해 사용됨
     private var previousQuery: String?
 
-    ///
+    /// 검색된 뉴스 기사 목록. 변경 시 테이블 뷰가 자동으로 리로드됨
     private var articles: [NewsArticleResponse] = [] {
         didSet { searchTableView.reloadData() }
     }
-    
-    ///
+
+    /// 다음 페이지 요청을 위한 페이지 토큰
     private var nextPage: String?
-    ///
+
+    /// 현재 데이터 요청 중 여부를 나타냄
     private var isFetching: Bool = false
-    ///
+
+    /// 중복 페이지 요청을 방지하기 위해 이미 요청된 nextPage 값들을 저장
     private var loadedNextPage: [String] = []
-    ///
-    private func hasLoadedNextPage(_ nextPage: String) -> Bool {
-        loadedNextPage.contains(nextPage)
-    }
 
     private let dataTrasnferService: any DataTransferService = DefaultDataTransferService()
     
@@ -41,9 +39,11 @@ final class SearchViewController: CoreViewController {
             vc.article = articles[indexPath.row]
         }
     }
-    
-    /// <#Description#>
-    /// - Parameter query: <#query description#>
+
+    /// 입력된 검색어를 기준으로 뉴스 기사를 검색합니다.
+    /// 이전 검색어와 다르고, 비어있지 않은 경우에만 새로 검색을 수행합니다.
+    ///
+    /// - Parameter query: 사용자가 입력한 검색어
     func search(_ query: String) {
         if previousQuery != query, !query.isEmpty {
             articles.removeAll()
@@ -55,10 +55,13 @@ final class SearchViewController: CoreViewController {
 
 extension SearchViewController {
 
-    /// <#Description#>
+    /// 검색어를 기반으로 뉴스 기사를 비동기적으로 가져옵니다.
+    /// 페이지네이션을 지원하며, 응답 결과는 내부 상태에 저장됩니다.
+    ///
     /// - Parameters:
-    ///   - category: <#category description#>
-    ///   - force: <#force description#>
+    ///   - query: 검색할 키워드 문자열
+    ///   - nextPage: 다음 페이지를 요청하기 위한 토큰 (기본값은 nil)
+    ///   - completion: 요청 완료 후 호출할 클로저 (성공/실패 상관없이 호출됨)
     private func fetchArticles(
         _ query: String,
         nextPage: String? = nil,
@@ -137,6 +140,10 @@ extension SearchViewController: UITableViewDelegate {
         if indexPath.row == 0 || indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: tableView.bounds.width)
         }
+    }
+
+    private func hasLoadedNextPage(_ nextPage: String) -> Bool {
+        loadedNextPage.contains(nextPage)
     }
 }
 

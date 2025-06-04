@@ -19,7 +19,6 @@ final class ArticleDetailViewController: CoreViewController {
 
     private let bookmarkStorage: any BookmarkStorage = DefaultBookmarkStorage()
 
-    ///
     var article: NewsArticleResponse?
 
     override func viewDidLoad() {
@@ -82,7 +81,8 @@ extension ArticleDetailViewController: CircleButtonDelegate {
     }
 
     private func didTappedSharingButton() {
-        let item: [Any] = [article!.link]
+        guard let article else { return }
+        let item: [Any] = [article.link]
         let ac = UIActivityViewController(activityItems: item, applicationActivities: nil)
         present(ac, animated: true)
     }
@@ -94,7 +94,7 @@ extension ArticleDetailViewController: CircleButtonDelegate {
             do {
                 try bookmarkStorage.deleteBookmarkArticle(article)
             } catch {
-                print(error)
+                print("delete bookmark error: \(error)")
             }
         // 북마크 버튼을 on으로 토글하면 (off -> on)
         } else {

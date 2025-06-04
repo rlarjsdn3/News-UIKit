@@ -11,9 +11,6 @@ final class DiscoverTableViewCell: UITableViewCell {
     
     @IBOutlet weak var containerView: UIView!
 
-    @IBOutlet weak var viewHeightConstraint: NSLayoutConstraint!
-    
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }

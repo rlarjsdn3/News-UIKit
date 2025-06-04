@@ -125,9 +125,7 @@ extension InsightNowViewController: UITextFieldDelegate {
         toggleSearchMode(true)
         insightNowTableView.scrollRectToVisible(.init(x: 0, y: 0, width: 1, height: 1), animated: true)
     }
-    
-    /// <#Description#>
-    /// - Parameter searchMode: <#searchMode description#>
+
     private func toggleSearchMode(_ searchMode: Bool) {
         if searchMode {
             addSearchController()
@@ -153,26 +151,24 @@ extension InsightNowViewController: UITextFieldDelegate {
             self.view.layoutIfNeeded()
         }
     }
-    
-    /// <#Description#>
+
     private func addSearchController() {
-        //
+        // 하위 뷰 컨트롤러에 `SearchViewController`가 없을 경우에만 추가
         if children.exclude(where: { $0 === searchController }),
            let searchCon = SearchViewController.instantiateViewController(from: "Search") {
             self.searchController = searchCon
             addChild(searchCon, to: containerView)
         }
     }
-    
-    /// <#Description#>
+
     private func removeSearchController() {
         if let searchController = searchController {
             removeChild(searchController)
         }
     }
 
-    ///
     private func addDiscoverViewController(to cell: DiscoverTableViewCell) {
+        // 하위 뷰 컨트롤러에 `DiscoverViewController`가 없을 경우에만 추가
         if children.exclude(where: { $0 === discoverController }),
            let discoverCon = DiscoverViewController.instantiateViewController(from: "Discover") {
             self.discoverController = discoverCon
@@ -183,7 +179,6 @@ extension InsightNowViewController: UITextFieldDelegate {
         }
     }
 
-    /// <#Description#>
     private func removeDiscoverController() {
         if let discoverController = discoverController {
             removeChild(discoverController)
@@ -244,6 +239,8 @@ extension InsightNowViewController: UITableViewDelegate {
         if let cell = insightNowTableView.cellForRow(at: indexPath) {
             let shouldStikcy =  contentOffsetY > cell.frame.minY + inset.top + 28
             stickyCategoryBar.isHidden = !shouldStikcy
+            // 🟡 현재 셀 간 간격을 고정값(28)으로 설정하고 있으나,
+            // 실제 레이아웃에 따라 동적으로 계산하도록 개선이 필요함
         }
     }
 }
@@ -292,8 +289,8 @@ extension InsightNowViewController: UITableViewDataSource {
             return UITableView.automaticDimension
         case .categoryBar:
             return 1700
-            // 🟡 셀 내부의 tableView 콘텐츠 크기에 맞게 동적으로 높이를 계산해야 하지만,
-            // 현재는 고정된 높이를 임시로 반환하고 있음
+            // 🟡 셀의 높이를 고정값(1700)으로 설정하고 있으나,
+            // 실제 레이아웃에 따라 tableView 콘텐츠 크기에 맞게 동적으로 계산하도록 개선이 필요함
         }
     }
 }

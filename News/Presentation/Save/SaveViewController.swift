@@ -17,7 +17,6 @@ final class SaveViewController: CoreViewController {
     private lazy var fetchedResultsController = bookmarkStorage.fetchedResultController
     private let bookmarkStorage: any BookmarkStorage = DefaultBookmarkStorage()
 
-    ///
     private var bookmarks: [NewsArticleResponse] = [] {
         didSet { bookmarksTableView.reloadData() }
     }
@@ -39,8 +38,6 @@ final class SaveViewController: CoreViewController {
     }
 
     override func setupAttributes() {
-        fetchedResultsController.delegate = self
-
         bookmarksTableView.apply {
             $0.register(
                 UINib(nibName: "NewsArticleTableViewCell", bundle: nil),
@@ -49,6 +46,8 @@ final class SaveViewController: CoreViewController {
             $0.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
             $0.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         }
+        
+        fetchedResultsController.delegate = self
     }
 
     private func performFetchBookmarkEntities() {

@@ -381,6 +381,7 @@
                         <outlet property="searchBar" destination="tAG-YZ-hwy" id="98K-gc-0CK"/>
                         <outlet property="searchBarHeightConstraint" destination="Lw1-hw-9UM" id="Pzo-rU-z4h"/>
                         <outlet property="searchBarTopConstraint" destination="tZZ-ca-JRz" id="k2m-NZ-DmU"/>
+                        <outlet property="searchBarTrailingConstraint" destination="8iU-Tg-Yih" id="MLN-xJ-gqn"/>
                         <outlet property="searchField" destination="erg-Sr-FOa" id="rzZ-ys-7cf"/>
                         <outlet property="stickyCategoryBar" destination="6yb-St-R0Q" id="KEw-DG-QAB"/>
                         <outlet property="xmarkButton" destination="Qd9-yJ-8GC" id="YdM-s1-xl9"/>

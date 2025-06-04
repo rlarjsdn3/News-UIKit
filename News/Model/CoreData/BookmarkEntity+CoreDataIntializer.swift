@@ -10,10 +10,12 @@ import CoreData
 
 extension BookmarkEntity {
     
-    /// <#Description#>
+    /// NewsArticleResponse 모델을 기반으로 BookmarkEntity를 초기화합니다.
+    /// 지정된 NSManagedObjectContext에 엔티티를 삽입합니다.
+    ///
     /// - Parameters:
-    ///   - response: <#response description#>
-    ///   - context: <#context description#>
+    ///   - response: 변환 대상이 되는 뉴스 기사 응답 모델
+    ///   - context: 엔티티를 삽입할 NSManagedObjectContext 인스턴스
     convenience init(
         _ response: NewsArticleResponse,
         insertInto context: NSManagedObjectContext

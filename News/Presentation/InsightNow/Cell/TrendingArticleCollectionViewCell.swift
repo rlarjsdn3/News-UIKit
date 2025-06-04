@@ -33,20 +33,20 @@ final class TrendingArticleCollectionViewCell: UICollectionViewCell {
 
 extension TrendingArticleCollectionViewCell {
     
-    /// <#Description#>
-    /// - Parameter article: <#article description#>
+    /// 주어진 기사 데이터를 기반으로 셀의 UI를 설정합니다.
+    ///
+    /// - Parameter article: 셀에 표시할 뉴스 기사 데이터
     func prepare(_ article: NewsArticleResponse) {
         prepareThumbnail(from: article.imageUrl)
         descriptionLabel.text = article.refinedDescription
         authorLabel.text = article.refinedAuthor
         publishedAtLabel.text = article.formattedPublishedAt
-
     }
-    
-    /// <#Description#>
-    /// - Parameters:
-    ///   - url: <#url description#>
-    ///   - retryCount: <#retryCount description#>
+
+    /// 주어진 URL에서 썸네일 이미지를 비동기로 다운로드하고 이미지 뷰에 설정합니다.
+    /// 이미지 로드에 실패한 경우 플레이스홀더 이미지를 대신 표시합니다.
+    ///
+    /// - Parameter url: 로드할 썸네일 이미지의 URL
     private func prepareThumbnail(from url: URL?) {
         if let url = url {
             let endpoint = APIEndpoints.image(url)

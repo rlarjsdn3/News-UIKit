@@ -11,28 +11,33 @@ final class DiscoverViewController: CoreViewController {
 
     @IBOutlet weak var categoryBar: CategoryBar!
     @IBOutlet weak var articleTableView: UITableView!
-    
-    ///
+
+    /// 현재 화면에 표시 중인 뉴스 기사 목록입니다. 변경 시 테이블 뷰를 자동으로 갱신합니다.
     private var articles: [NewsArticleResponse] = [] {
         didSet { articleTableView.reloadData() }
     }
-    ///
+
+    /// 마지막으로 선택된 카테고리 버튼을 나타냅니다.
     private var previousTappedButton: NewsCategory?
 
-    ///
+    /// 페이징 처리 활성화 여부입니다.
     var isPagingEnabled: Bool = true
 
-    ///
+    /// 다음 페이지 요청을 위한 URL입니다.
     private var nextPage: String?
-    ///
+
+    /// 현재 데이터를 가져오는 중인지 여부를 나타냅니다.
     private var isFetching: Bool = false
-    ///
+
+    /// 이미 로드한 페이지 URL 목록입니다. 중복 요청을 방지합니다.
     private var loadedNextPage: [String] = []
 
+    /// 네트워크 요청을 처리하는 데이터 전송 서비스입니다.
     private let dataTrasnferService: any DataTransferService = DefaultDataTransferService()
 
-    ///
+    /// 카테고리 선택 이벤트를 외부로 전달하기 위한 델리게이트입니다.
     weak var delegate: (any DiscoverViewControllerDelegate)?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +45,7 @@ final class DiscoverViewController: CoreViewController {
         // 뷰가 로드될 시,
         // 최초 한번 강제로 기사 로드하고,
         fetchArticles(force: true)
-        // All 버튼이 선택된 상태로 시작
+        // All 버튼이 선택된 상태로 시작하기
         categoryBar.sendAction(nil)
     }
 
@@ -83,11 +88,14 @@ final class DiscoverViewController: CoreViewController {
 }
 
 extension DiscoverViewController {
-    
-    /// <#Description#>
+
+    /// 주어진 카테고리에 해당하는 뉴스 기사를 서버로부터 가져옵니다.
+    ///
     /// - Parameters:
-    ///   - category: <#category description#>
-    ///   - force: <#force description#>
+    ///   - category: 불러올 뉴스의 카테고리 (nil이면 전체 기사)
+    ///   - nextPage: 페이지네이션을 위한 다음 페이지 URL (nil이면 첫 페이지)
+    ///   - force: 이전에 선택된 카테고리와 동일하더라도 강제로 다시 불러올지 여부
+    ///   - completion: 데이터 로드 완료 후 실행할 클로저
     private func fetchArticles(
         _ category: NewsCategory? = nil,
         nextPage: String? = nil,
@@ -181,7 +189,6 @@ extension DiscoverViewController: UITableViewDelegate {
         }
     }
 
-    ///
     private func hasLoadedNextPage(_ nextPage: String) -> Bool {
         loadedNextPage.firstIndex(of: nextPage) != nil
     }
