@@ -47,7 +47,6 @@ final class CoreDataService {
     }()
 
     /// viewContext에 변경사항이 있는 경우 저장을 시도합니다.
-    /// 저장 실패 시 앱을 중단시키며, 개발 중 디버깅을 용이하게 합니다.
     func saveContext() {
         if viewContext.hasChanges {
             do {
